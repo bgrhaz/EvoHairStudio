@@ -29,7 +29,7 @@ class LoginBasic extends Controller
       if ($role == 'admin') {
         return redirect()->route('admin.dashboard');
       } else if ($role == 'barberman') {
-        return view('Barberman');
+        return redirect()->route('barberman.dashboard');
       } else if ($role == 'user') {
         return redirect()->route('halamanUser');
       }

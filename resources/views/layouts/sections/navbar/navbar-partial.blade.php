@@ -33,17 +33,13 @@
   <!-- /Search -->
   <ul class="navbar-nav flex-row align-items-center ms-auto">
     <!-- Place this tag where you want the button to render. -->
-    <li class="nav-item lh-1 me-4">
-      <a class="github-button" href="{{ config('variables.repository') }}" data-icon="octicon-star" data-size="large"
-        data-show-count="true"
-        aria-label="Star themeselection/sneat-html-laravel-admin-template-free on GitHub">Star</a>
-    </li>
+
 
     <!-- User -->
     <li class="nav-item navbar-dropdown dropdown-user dropdown">
       <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
-        <div class="avatar avatar-online">
-          <img src="{{ asset('assets/img/avatars/1.png') }}" alt="alt" class="rounded-circle" />
+        <div class="avatar avatar-online border-2 border-blue-600 bg-blue-50 text-blue-600 ">
+          <i class="icon-base ri ri-user-fill icon-lg lh-0"></i>
         </div>
       </a>
       <ul class="dropdown-menu dropdown-menu-end">
@@ -52,8 +48,7 @@
             <div class="d-flex">
               <div class="flex-shrink-0 me-3">
                 <div class="avatar avatar-online">
-                  <img src="{{ asset('assets/img/avatars/1.png') }}" alt="alt"
-                    class="w-px-40 h-auto rounded-circle" />
+                  <i class="icon-base ri ri-user-fill icon-lg lh-0"></i>
                 </div>
               </div>
               <div class="flex-grow-1">
@@ -91,7 +86,7 @@
         </li>
         <li>
           <div class="d-grid px-4 pt-2 pb-1">
-            <a class="btn btn-danger d-flex" href="{{ route('admin.auth-logout-basic') }}">
+            <a class="btn btn-danger d-flex" href="{{ route('auth-logout-basic') }}">
               <small class="align-middle">Logout</small>
               <i class="ri ri-logout-box-r-line ms-2 icon-xs"></i>
             </a>

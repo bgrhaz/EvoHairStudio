@@ -44,6 +44,7 @@ use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\barbermanController\BarbermanController;
 
 Route::middleware('guest')->group(function () {
   Route::get('/', [LoginBasic::class, 'index'])->name('login');
@@ -56,6 +57,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   // Main Page Route
   Route::get('/dashboard', [Analytics::class, 'index'])->name('dashboard');
+  Route::get('/akunBarberman', [Analytics::class, 'akunBarberman'])->name('akunBarberman');
+  Route::get('/TambahAkunBarberman', [Analytics::class, 'TambahAkunBarberman'])->name('TambahAkunBarberman');
 
   // layout
   Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
@@ -70,9 +73,6 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
   Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
   Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
-
-  // LOGOUT
-  Route::get('/auth/logout-basic', [LoginBasic::class, 'logout'])->name('auth-logout-basic');
 
   // cards
   Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
@@ -119,7 +119,13 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
 
 Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
   Route::get('/HalamanUtama', [UserController::class, 'index'])->name('halamanUser');
+});
 
-  //Logout
+Route::middleware(['auth', 'role:barberman'])->prefix('barberman')->group(function () {
+  Route::get('/index', [BarbermanController::class, 'index'])->name('barberman.dashboard');
+});
+
+Route::middleware(['auth'])->group(function () {
   Route::get('/auth/logout-basic', [LoginBasic::class, 'logout'])->name('auth-logout-basic');
 });
+ //Logout

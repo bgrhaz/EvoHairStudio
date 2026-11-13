@@ -48,19 +48,14 @@
       "slug": "pages-account-settings",
       "submenu": [
         {
-          "url": "pages/account-settings-account",
-          "name": "Account",
-          "slug": "pages-account-settings-account"
+          "url": "/akunBarberman",
+          "name": "Daftar Akun",
+          "slug": "/akunBarberman"
         },
         {
-          "url": "pages/account-settings-notifications",
-          "name": "Notifications",
-          "slug": "pages-account-settings-notifications"
-        },
-        {
-          "url": "pages/account-settings-connections",
-          "name": "Connections",
-          "slug": "pages-account-settings-connections"
+          "url": "/TambahAkunBarberman",
+          "name": "Tambah Barberman",
+          "slug": "/TambahAkunBarberman"
         }
       ]
     },

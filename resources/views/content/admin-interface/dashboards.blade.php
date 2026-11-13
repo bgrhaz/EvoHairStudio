@@ -17,7 +17,7 @@
     <div class="col-md-12 col-lg-4">
       <div class="card">
         <div class="card-body text-nowrap">
-          <h5 class="card-title mb-0 flex-wrap text-nowrap">Congratulations Norris! 🎉</h5>
+          <h5 class="card-title mb-0 flex-wrap text-nowrap">Input Transaksi</h5>
           <p class="mb-2">Best seller of the month</p>
           <h4 class="text-primary mb-0">$42.8k</h4>
           <p class="mb-2">78% of target 🚀</p>
@@ -32,7 +32,7 @@
       <div class="card h-100">
         <div class="card-header">
           <div class="d-flex align-items-center justify-content-between">
-            <h5 class="card-title m-0 me-2">Transactions</h5>
+            <h5 class="card-title m-0 me-2">Transaksi Hari Ini</h5>
             <div class="dropdown">
               <button class="btn text-body-secondary p-0" type="button" id="transactionID" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
