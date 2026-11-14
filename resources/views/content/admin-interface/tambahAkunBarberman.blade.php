@@ -10,21 +10,33 @@
         </div>
 
         <div class="card-body">
-          <form action="" method="POST">
+          <form action="{{ route('admin.BuatAkunBarberman') }}" method="POST">
             @csrf
             <input type="hidden" name="role" value="barberman">
 
             <div class="row g-4">
               {{-- Baris 1: Username & Email --}}
               <div class="col-md-6">
+                <label for="username" class="form-label">Nama Lengkap</label>
+                <input type="text" id="namaLengkap" name="namaLengkap" class="form-control"
+                  placeholder="Masukkan Nama Lengkap" required>
+              </div>
+
+              <div class="col-md-6">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Masukkan username"
+                <input type="text" id="username" name="username" class="form-control" placeholder="Rendi123" required>
+              </div>
+
+              {{-- Baris 3: Nomor HP --}}
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="contoh@email.com"
                   required>
               </div>
 
               <div class="col-md-6">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="contoh@email.com"
+                <label for="nomor_hp" class="form-label">Nomor HP</label>
+                <input type="text" id="nomor_hp" name="nomor_hp" class="form-control" placeholder="083175012283"
                   required>
               </div>
 

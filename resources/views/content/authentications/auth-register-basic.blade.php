@@ -26,7 +26,11 @@
 
             <form id="formAuthentication" class="mb-5" action="{{ route('auth-register-user') }}" method="POST">
               @csrf
-
+              <div class="form-floating form-floating-outline mb-5 form-control-validation">
+                <input type="text" class="form-control" id="namaLengkap" name="namaLengkap"
+                  placeholder="Masukkan Nama Lengkap" autofocus required />
+                <label for="namaLengkap">Nama Lengkap</label>
+              </div>
               <div class="form-floating form-floating-outline mb-5 form-control-validation">
                 <input type="text" class="form-control" id="username" name="username"
                   placeholder="Enter your username" autofocus required />
@@ -36,6 +40,11 @@
                 <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email"
                   required />
                 <label for="email">Email</label>
+              </div>
+              <div class="form-floating form-floating-outline mb-5 form-control-validation">
+                <input type="text" class="form-control" id="nomor_hp" name="nomor_hp" placeholder="Masukkan Nomor HP"
+                  required />
+                <label for="nomor_hp">Nomor HP</label>
               </div>
               <div class="mb-5 form-password-toggle form-control-validation">
                 <div class="input-group input-group-merge">

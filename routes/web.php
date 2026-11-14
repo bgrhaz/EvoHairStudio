@@ -45,6 +45,8 @@ use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\barbermanController\BarbermanController;
+use App\Http\Controllers\adminController\BuatAkunBarberman;
+use App\Http\Controllers\adminController\BuatAkunAdmin;
 
 Route::middleware('guest')->group(function () {
   Route::get('/', [LoginBasic::class, 'index'])->name('login');
@@ -58,7 +60,13 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   // Main Page Route
   Route::get('/dashboard', [Analytics::class, 'index'])->name('dashboard');
   Route::get('/akunBarberman', [Analytics::class, 'akunBarberman'])->name('akunBarberman');
-  Route::get('/TambahAkunBarberman', [Analytics::class, 'TambahAkunBarberman'])->name('TambahAkunBarberman');
+
+
+  Route::get('/TambahAkunBarberman', [BuatAkunBarberman::class, 'index'])->name('TambahAkunBarberman');
+  Route::post('/BuatAkunBarberman', [BuatAkunBarberman::class, 'store'])->name('BuatAkunBarberman');
+
+  Route::get('/TambahAkunAdmin', [BuatAkunAdmin::class, 'index'])->name('TambahAkunAdmin');
+  Route::post('/BuatAkunAdmin', [BuatAkunAdmin::class, 'store'])->name('BuatAkunAdmin');
 
   // layout
   Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');

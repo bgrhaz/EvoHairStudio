@@ -65,10 +65,9 @@
       "slug": "auth",
       "submenu": [
         {
-          "url": "auth/login-basic",
-          "name": "Masuk",
-          "slug": "auth-login-basic",
-          "target": "_blank"
+          "url": "/TambahAkunAdmin",
+          "name": "Tambah Admin",
+          "slug": "/TambahAkunAdmin"
         },
         {
           "url": "auth/register-basic",
