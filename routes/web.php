@@ -43,10 +43,14 @@ use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
-use App\Http\Controllers\User\UserController;
+
+use App\Http\Controllers\pelangganController\pelangganController;
+use App\Http\Controllers\pelangganController\reservasiController;
+
 use App\Http\Controllers\barbermanController\BarbermanController;
 use App\Http\Controllers\adminController\BuatAkunBarberman;
 use App\Http\Controllers\adminController\BuatAkunAdmin;
+use App\Http\Controllers\adminController\jadwalBarberman;
 
 Route::middleware('guest')->group(function () {
   Route::get('/', [LoginBasic::class, 'index'])->name('login');
@@ -67,6 +71,8 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
 
   Route::get('/TambahAkunAdmin', [BuatAkunAdmin::class, 'index'])->name('TambahAkunAdmin');
   Route::post('/BuatAkunAdmin', [BuatAkunAdmin::class, 'store'])->name('BuatAkunAdmin');
+  Route::get('JadwalBarberman/{id}', [jadwalBarberman::class, 'index'])->name('JadwalBarberman');
+  Route::post('JadwalBarberman/{id}/simpan', [jadwalBarberman::class, 'store'])->name('SimpanJadwalBarberman');
 
   // layout
   Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
@@ -125,8 +131,9 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
 });
 
-Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
-  Route::get('/HalamanUtama', [UserController::class, 'index'])->name('halamanUser');
+Route::middleware(['auth', 'role:user'])->prefix('pelanggan')->group(function () {
+  Route::get('/HalamanUtama', [pelangganController::class, 'index'])->name('halamanPelanggan');
+  Route::get('/HalamanReservasi/{id}', [reservasiController::class, 'index'])->name('HalamanReservasi');
 });
 
 Route::middleware(['auth', 'role:barberman'])->prefix('barberman')->group(function () {

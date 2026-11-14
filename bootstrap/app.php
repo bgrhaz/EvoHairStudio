@@ -18,7 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
       return match ($role) {
         'admin' => route('admin.dashboard'),
         'barberman' => route('barberman.dashboard'),
-        'user' => route('halamanUser'),
+        'user' => route('halamanPelanggan'),
       };
     });
   })

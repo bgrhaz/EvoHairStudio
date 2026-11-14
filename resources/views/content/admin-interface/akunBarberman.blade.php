@@ -23,6 +23,7 @@
                 <th class="text-truncate">Email</th>
                 <th class="text-truncate">Role</th>
                 <th class="text-truncate">Status</th>
+                <th class="text-truncate">Pengaturan Jadwal</th>
               </tr>
             </thead>
             <tbody>
@@ -33,7 +34,7 @@
                       <div class="avatar avatar-sm me-4">
                       </div>
                       <div>
-                        <h6 class="mb-0">{{ $barberman->username }}</h6>
+                        <h6 class="mb-0">{{ $barberman->namaLengkap }}</h6>
                       </div>
                     </div>
                   </td>
@@ -45,6 +46,12 @@
                     </div>
                   </td>
                   <td><span class="badge bg-label-warning rounded-pill">Aktif</span></td>
+                  <td>
+                    <form action="{{ route('admin.JadwalBarberman', $barberman->user_id) }}" method="GET">
+                      <button type="submit" class="btn btn-success">Atur Jadwal</button>
+                    </form>
+
+                  </td>
                 </tr>
 
               @empty

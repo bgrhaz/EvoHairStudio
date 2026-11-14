@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\pelangganController;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Pegawai;
 
-class UserController extends Controller
+class reservasiController extends Controller
 {
   /**
    * Display a listing of the resource.
    */
-  public function index()
+  public function index($id)
   {
-    return view('content.user-interface.User');
+    $barberman = Pegawai::findOrFail($id);
+    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman'));
   }
 
   /**
