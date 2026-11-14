@@ -43,10 +43,12 @@
             <h5 class="mb-0">Detail Reservasi</h5>
           </div>
           <div class="card-body">
-            <form action="#" method="POST">
+            
+            <form action="{{ route('AjukanReservasi') }}" method="POST">
               @csrf
               <!-- Input tersembunyi untuk ID Barberman -->
               <input type="hidden" name="id_pegawai" value="{{ $barberman->id_pegawai }}">
+              <input type="hidden" name="user_id" value="{{ Auth::user()->user_id }}">
 
               <!-- Nama Pelanggan (Otomatis dari user login) -->
               <div class="mb-3">
@@ -58,19 +60,17 @@
               <!-- Pilih Paket Layanan -->
               <div class="mb-3">
                 <label for="paketLayanan" class="form-label">Pilih Paket Layanan</label>
-                <select class="form-select" id="paketLayanan" name="paket_id" required>
+                <select class="form-select" id="paketLayanan" name="id_layanan" required>
                   <option value="" selected disabled>-- Pilih Paket Layanan --</option>
-                  <option value="1">Paket Basic - Rp 45.000 (45 Menit)</option>
-                  <option value="2">Paket Premium (Haircut + Wash + Styling) - Rp 65.000 (60 Menit)</option>
-                  <option value="3">Kids Haircut - Rp 35.000 (30 Menit)</option>
-                  <option value="4">Beard Trim & Shave - Rp 30.000 (30 Menit)</option>
+                  @foreach ($layanan as $pilihan)
+                    <option value="{{ $pilihan->id_layanan }}">{{ $pilihan->nama_layanan }}</option>
+                  @endforeach
                 </select>
               </div>
 
               <!-- Pilih Tanggal Reservasi -->
               <!-- Tanggal Reservasi Otomatis Hari Ini -->
               <input type="hidden" name="tanggal_reservasi" value="{{ date('Y-m-d') }}">
-
               <!-- Pilih Jam Reservasi Hari Ini -->
               <div class="mb-4">
                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -82,48 +82,14 @@
 
                 <!-- Contoh Tampilan Statis Sebelum Terhubung Database -->
                 <div class="row g-2">
-                  <div class="col-4 col-sm-3">
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam1" value="1" required>
-                    <label class="btn btn-outline-primary w-100" for="jam1">09:00</label>
-                  </div>
-
-                  <div class="col-4 col-sm-3">
-                    <!-- Contoh slot yang sudah dibooking orang lain (disabled) -->
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam2" value="2" disabled>
-                    <label class="btn btn-outline-secondary w-100 text-decoration-line-through"
-                      for="jam2">10:00</label>
-                  </div>
-
-                  <div class="col-4 col-sm-3">
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam3" value="3" required>
-                    <label class="btn btn-outline-primary w-100" for="jam3">11:00</label>
-                  </div>
-
-                  <div class="col-4 col-sm-3">
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam4" value="4" required>
-                    <label class="btn btn-outline-primary w-100" for="jam4">13:00</label>
-                  </div>
-
-                  <div class="col-4 col-sm-3">
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam5" value="5" required>
-                    <label class="btn btn-outline-primary w-100" for="jam5">14:00</label>
-                  </div>
-
-                  <div class="col-4 col-sm-3">
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam6" value="6" disabled>
-                    <label class="btn btn-outline-secondary w-100 text-decoration-line-through"
-                      for="jam6">15:00</label>
-                  </div>
-
-                  <div class="col-4 col-sm-3">
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam7" value="7" required>
-                    <label class="btn btn-outline-primary w-100" for="jam7">16:00</label>
-                  </div>
-
-                  <div class="col-4 col-sm-3">
-                    <input type="radio" class="btn-check" name="jadwal_id" id="jam8" value="8" required>
-                    <label class="btn btn-outline-primary w-100" for="jam8">19:00</label>
-                  </div>
+                  @foreach ($jadwal_barberman as $jam)
+                    <div class="col-4 col-sm-3">
+                      <input type="radio" class="btn-check" name="id_jadwal" id="jadwal-{{ $jam->id_jadwal }}"
+                        value="{{ $jam->id_jadwal }}" required>
+                      <label class="btn btn-outline-primary w-100"
+                        for="jadwal-{{ $jam->id_jadwal }}">{{ $jam->jam }}</label>
+                    </div>
+                  @endforeach
                 </div>
               </div>
 
@@ -137,6 +103,7 @@
                 </button>
               </div>
             </form>
+
           </div>
         </div>
       </div>

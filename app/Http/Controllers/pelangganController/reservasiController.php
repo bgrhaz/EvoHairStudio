@@ -5,6 +5,12 @@ namespace App\Http\Controllers\pelangganController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pegawai;
+use App\Models\jadwal_barberman;
+use App\Models\Layanan;
+use App\Models\master_jam;
+use App\Models\Reservasi;
+use App\Models\Pelanggan;
+use Carbon\Carbon;
 
 class reservasiController extends Controller
 {
@@ -14,7 +20,12 @@ class reservasiController extends Controller
   public function index($id)
   {
     $barberman = Pegawai::findOrFail($id);
-    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman'));
+    $layanan = Layanan::all();
+    $jadwal_barberman = jadwal_barberman::join('master_jam', 'jadwal_barberman.id_jam', '=', 'master_jam.id_jam')
+      ->where('id_pegawai', $id)
+      ->select('jadwal_barberman.*', 'master_jam.jam')->get();
+
+    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman', 'layanan', 'jadwal_barberman'));
   }
 
   /**
@@ -30,7 +41,48 @@ class reservasiController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $data['id_pegawai'] = $request->id_pegawai;
+    $data['user_id'] = $request->user_id;
+    $data['nama_pelanggan'] = $request->nama_pelanggan;
+    $data['id_layanan'] = $request->id_layanan;
+    $data['tanggal_reservasi'] = $request->tanggal_reservasi;
+    $id_jadwal = $request->id_jadwal;
+
+    // Mengambil id_pelanggan
+    $Pelanggan = Pelanggan::where('user_id', $data['user_id'])->firstOrFail();
+    $id_pelanggan = $Pelanggan->id_pelanggan;
+
+    // Mengambil Durasi
+    $layanan = Layanan::findOrFail($data['id_layanan']);
+    $durasi = $layanan->durasi;
+
+    $total_bayar = $layanan->harga;
+
+    // Mengambil jam_mulai dari table master_jam
+    $jadwal_barberman = jadwal_barberman::where('id_jadwal', $id_jadwal)->firstOrFail();
+    $id_jam = $jadwal_barberman->id_jam;
+
+    $master_jam = master_jam::where('id_jam', $id_jam)->firstOrFail();
+    $jam = $master_jam->jam;
+
+    $jam_selesai = Carbon::parse($jam)
+      ->addMinutes($durasi)
+      ->format('H:i:s');
+
+    $status_reservasi = 'belum selesai';
+
+    Reservasi::create([
+      'id_pelanggan' => $id_pelanggan,
+      'id_pegawai' => $data['id_pegawai'],
+      'id_layanan' => $data['id_layanan'],
+      'tanggal_reservasi' => $data['tanggal_reservasi'],
+      'jam_mulai' => $jam,
+      'jam_selesai' => $jam_selesai,
+      'total_bayar' => $total_bayar,
+      'status_reservasi' => $status_reservasi
+    ]);
+
+    return redirect()->route('halamanPelanggan');
   }
 
   /**

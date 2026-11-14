@@ -72,7 +72,7 @@
 
           @if ($jamMaster->isNotEmpty())
             <div class="card-footer border-top d-flex justify-content-end gap-2">
-              <a href="{{ url()->previous() }}" class="btn btn-label-secondary">Kembali</a>
+              <a href="{{ route('admin.akunBarberman') }}" class="btn btn-label-secondary">Kembali</a>
               <button type="submit" class="btn btn-primary">
                 <i class="bx bx-save me-1"></i> Simpan Jadwal
               </button>

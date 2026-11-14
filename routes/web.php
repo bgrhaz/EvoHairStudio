@@ -134,6 +134,7 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
 Route::middleware(['auth', 'role:user'])->prefix('pelanggan')->group(function () {
   Route::get('/HalamanUtama', [pelangganController::class, 'index'])->name('halamanPelanggan');
   Route::get('/HalamanReservasi/{id}', [reservasiController::class, 'index'])->name('HalamanReservasi');
+  Route::post('/HalamanReservasi/mengajukan', [reservasiController::class, 'store'])->name('AjukanReservasi');
 });
 
 Route::middleware(['auth', 'role:barberman'])->prefix('barberman')->group(function () {

@@ -1,0 +1,8 @@
+.btn-check:checked + .btn-outline-primary {
+  background-color: #031633 !important; /* Biru dongker sangat gelap (hampir hitam) */
+  border-color: #031633 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 10px rgba(3, 22, 51, 0.45) !important;
+  transform: scale(0.98); /* Efek sedikit tertekan saat aktif */
+}
