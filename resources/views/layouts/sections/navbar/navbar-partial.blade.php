@@ -23,77 +23,81 @@
 @endif
 
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-  <!-- Search -->
   <div class="navbar-nav align-items-center">
     <div class="nav-item d-flex align-items-center">
-      <i class="icon-base ri ri-search-line icon-lg lh-0"></i>
-      <input type="text" class="form-control border-0 shadow-none" placeholder="Search..." aria-label="Search...">
+      {{-- Search --}}
     </div>
   </div>
   <!-- /Search -->
   <ul class="navbar-nav flex-row align-items-center ms-auto">
-    <!-- Place this tag where you want the button to render. -->
-
-
-    <!-- User -->
     <li class="nav-item navbar-dropdown dropdown-user dropdown">
       <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
-        <div class="avatar avatar-online border-2 border-blue-600 bg-blue-50 text-blue-600 ">
-          <i class="icon-base ri ri-user-fill icon-lg lh-0"></i>
+
+        <div class="avatar avatar-gold">
+          <i class="ri ri-user-3-fill"></i>
         </div>
       </a>
+
       <ul class="dropdown-menu dropdown-menu-end">
+
+        <!-- User Information -->
         <li>
-          <a class="dropdown-item" href="javascript:void(0);">
-            <div class="d-flex">
+          <div class="dropdown-item">
+            <div class="d-flex align-items-center">
               <div class="flex-shrink-0 me-3">
-                <div class="avatar avatar-online">
-                  <i class="icon-base ri ri-user-fill icon-lg lh-0"></i>
+                <div class="avatar avatar-gold avatar-lg">
+                  <i class="ri ri-user-3-fill"></i>
                 </div>
               </div>
+
               <div class="flex-grow-1">
-                <h6 class="mb-0">{{ Auth::user()->username }}</h6>
-                <small class="text-body-secondary">{{ Auth::user()->role }}</small>
+                <h6 class="mb-0">
+                  {{ Auth::user()->username }}
+                </h6>
+                <small class="text-body-secondary">
+                  {{ Auth::user()->role }}
+                </small>
               </div>
             </div>
-          </a>
+          </div>
         </li>
+
         <li>
           <div class="dropdown-divider my-1"></div>
         </li>
+
+        <!-- Profile -->
         <li>
           <a class="dropdown-item" href="javascript:void(0);">
-            <i class="icon-base ri ri-user-3-line icon-md me-3"></i>
+            <i class="ri ri-user-3-line icon-md me-3"></i>
             <span>My Profile</span>
           </a>
         </li>
+
+        <!-- Settings -->
         <li>
           <a class="dropdown-item" href="javascript:void(0);">
-            <i class="icon-base ri ri-settings-4-line icon-md me-4"></i><span>Settings</span>
+            <i class="ri ri-settings-3-line icon-md me-3"></i>
+            <span>Settings</span>
           </a>
         </li>
-        <li>
-          <a class="dropdown-item" href="javascript:void(0);">
-            <span class="d-flex align-items-center align-middle">
-              <i class="flex-shrink-0 icon-base ri ri-bank-card-line icon-md me-3"></i>
-              <span class="flex-grow-1 align-middle ms-1">Billing Plan</span>
-              <span class="flex-shrink-0 badge rounded-pill bg-danger">4</span>
-            </span>
-          </a>
-        </li>
+
+        <!-- Logout -->
         <li>
           <div class="dropdown-divider my-1"></div>
         </li>
+
         <li>
           <div class="d-grid px-4 pt-2 pb-1">
-            <a class="btn btn-danger d-flex" href="{{ route('auth-logout-basic') }}">
-              <small class="align-middle">Logout</small>
-              <i class="ri ri-logout-box-r-line ms-2 icon-xs"></i>
+            <a class="btn btn-danger d-flex justify-content-center align-items-center"
+              href="{{ route('auth-logout-basic') }}">
+              <span>Logout</span>
+              <i class="ri ri-logout-box-r-line ms-2"></i>
             </a>
           </div>
         </li>
+
       </ul>
     </li>
-    <!--/ User -->
   </ul>
 </div>

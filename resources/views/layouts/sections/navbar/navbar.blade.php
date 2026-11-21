@@ -5,7 +5,9 @@
 </nav>
 @else
 <nav class="layout-navbar navbar navbar-expand-xl align-items-center" id="layout-navbar">
-    <div class="{{ $containerNav }}">@include('layouts/sections/navbar/navbar-partial')</div>
+    <div class="{{ $containerNav }}">
+      @include('layouts/sections/navbar/navbar-partial')
+    </div>
 </nav>
 @endif
 <!-- / Navbar -->

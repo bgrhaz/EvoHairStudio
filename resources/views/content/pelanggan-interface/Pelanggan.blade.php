@@ -10,12 +10,12 @@
         <h4 class="fw-bold mb-1">Pilih Barberman</h4>
         <p class="text-muted mb-0">Silakan pilih barberman yang tersedia untuk mengajukan reservasi</p>
       </div>
-      <form action="{{ route('auth-logout-basic') }}" method="GET">
+      {{-- <form action="{{ route('auth-logout-basic') }}" method="GET">
 
         <button type="submit" class="btn btn-outline-danger btn-sm">
           <i class="bx bx-power-off me-1"></i> Logout
         </button>
-      </form>
+      </form> --}}
     </div>
 
     <!-- Daftar Card Barberman Aktif -->

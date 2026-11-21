@@ -481,3 +481,47 @@ footer,
 .form-floating > label {
   color: #d4af37 !important;
 }
+
+/* =================================
+   BLACK & GOLD - USER AVATAR
+================================= */
+
+.avatar-gold {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2b2b2b, #171717);
+  border: 1px solid #b89635;
+
+  color: #e5c45b;
+  font-size: 21px;
+
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.12);
+  transition: all 0.25s ease;
+}
+
+.avatar-gold:hover {
+  background: #d4af37;
+  color: #171717;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.3);
+  transform: scale(1.05);
+}
+
+.avatar-gold.avatar-lg {
+  width: 46px;
+  height: 46px;
+  font-size: 23px;
+}
+
+/* Hilangkan indikator online */
+.avatar-online::after {
+  display: none !important;
+}
+
+.navbar-nav .dropdown-user > a .avatar-gold {
+  margin-right: 8px;
+}
