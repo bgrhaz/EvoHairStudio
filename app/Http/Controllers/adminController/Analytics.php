@@ -96,6 +96,12 @@ class Analytics extends Controller
     return view('content.admin-interface.akunBarberman', compact('dataBarberman'));
   }
 
+  public function akunAdmin()
+  {
+    $dataAdmin = User::where('role', 'admin')->get();
+    return view('content.admin-interface.akunAdmin', compact('dataAdmin'));
+  }
+
   public function transaksi(Request $request)
   {
     $user_id = Auth::id();
@@ -132,6 +138,16 @@ class Analytics extends Controller
     ]);
 
     return redirect()->route('admin.dashboard');
+  }
+
+  public function halamanTransaksi()
+  {
+    $dataAdmin = Tranksaksi::join('admin', 'admin.id_admin', '=', 'transaksi.id_admin')
+      ->join('layanan', 'layanan.id_layanan', '=', 'transaksi.id_kategori')
+      ->select('admin.*', 'transaksi.*', 'layanan.*')
+      ->get();
+
+    return view('content.admin-interface.transaksi', compact('dataAdmin'));
   }
 
 

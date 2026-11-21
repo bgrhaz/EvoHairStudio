@@ -12,14 +12,14 @@
       "slug": "layouts",
       "submenu": [
         {
-          "url": "layouts/without-menu",
+          "url": "/halamanTransaksi",
           "name": "Semua Transaksi",
-          "slug": "layouts-without-menu"
+          "slug": "/halamanTransaksi"
         }
       ]
     },
     {
-      "menuHeader": "Akun anda"
+      "menuHeader": "Akun"
     },
     {
       "name": "Barberman",
@@ -44,9 +44,9 @@
       "slug": "auth",
       "submenu": [
         {
-          "url": "/TambahAkunAdmin",
+          "url": "/akunAdmin",
           "name": "Daftar Admin",
-          "slug": "/TambahAkunAdmin"
+          "slug": "/akunAdmin"
         },
         {
           "url": "/TambahAkunAdmin",
@@ -54,10 +54,9 @@
           "slug": "/TambahAkunAdmin"
         },
         {
-          "url": "auth/forgot-password-basic",
-          "name": "Ganti Kata Sandi",
-          "slug": "auth-forgot-password-basic",
-          "target": "_blank"
+          "url": "/PengaturanAkun",
+          "name": "Pengaturan Akun",
+          "slug": "/PengaturanAkun"
         },
         {
           "url": "auth/logout-basic",

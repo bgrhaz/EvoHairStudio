@@ -51,6 +51,7 @@ use App\Http\Controllers\barbermanController\BarbermanController;
 use App\Http\Controllers\adminController\BuatAkunBarberman;
 use App\Http\Controllers\adminController\BuatAkunAdmin;
 use App\Http\Controllers\adminController\jadwalBarberman;
+use App\Http\Controllers\adminController\PengaturanAkun;
 
 Route::middleware('guest')->group(function () {
   Route::get('/', [LoginBasic::class, 'index'])->name('login');
@@ -64,6 +65,9 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   // Main Page Route
   Route::get('/dashboard', [Analytics::class, 'index'])->name('dashboard');
   Route::get('/akunBarberman', [Analytics::class, 'akunBarberman'])->name('akunBarberman');
+  Route::get('/akunAdmin', [Analytics::class, 'akunAdmin'])->name('akunAdmin');
+  Route::get('/halamanTransaksi', [Analytics::class, 'halamanTransaksi'])->name('halamanTransaksi');
+  Route::get('/PengaturanAkun', [PengaturanAkun::class, 'index'])->name('PengaturanAkun');
 
 
   Route::get('/TambahAkunBarberman', [BuatAkunBarberman::class, 'index'])->name('TambahAkunBarberman');
@@ -73,6 +77,7 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   Route::post('/BuatAkunAdmin', [BuatAkunAdmin::class, 'store'])->name('BuatAkunAdmin');
   Route::get('JadwalBarberman/{id}', [jadwalBarberman::class, 'index'])->name('JadwalBarberman');
   Route::post('JadwalBarberman/{id}/simpan', [jadwalBarberman::class, 'store'])->name('SimpanJadwalBarberman');
+  Route::post('/UbahAkun', [PengaturanAkun::class, 'store'])->name('UbahAKun');
 
   Route::get('/dashboard/{id}', [Analytics::class, 'cekJadwal'])->name('cekJadwal');
   Route::post('/Dashboard/AjukanReservasiOffline',  [Analytics::class, 'store'])->name('AjukanReservasiOffline');
