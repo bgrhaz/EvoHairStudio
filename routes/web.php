@@ -74,6 +74,10 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   Route::get('JadwalBarberman/{id}', [jadwalBarberman::class, 'index'])->name('JadwalBarberman');
   Route::post('JadwalBarberman/{id}/simpan', [jadwalBarberman::class, 'store'])->name('SimpanJadwalBarberman');
 
+  Route::get('/dashboard/{id}', [Analytics::class, 'cekJadwal'])->name('cekJadwal');
+  Route::post('/Dashboard/AjukanReservasiOffline',  [Analytics::class, 'store'])->name('AjukanReservasiOffline');
+  Route::post('/Dashboard/transaksi', [Analytics::class, 'transaksi'])->name('transaksi');
+
   // layout
   Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
   Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
@@ -135,6 +139,10 @@ Route::middleware(['auth', 'role:user'])->prefix('pelanggan')->group(function ()
   Route::get('/HalamanUtama', [pelangganController::class, 'index'])->name('halamanPelanggan');
   Route::get('/HalamanReservasi/{id}', [reservasiController::class, 'index'])->name('HalamanReservasi');
   Route::post('/HalamanReservasi/mengajukan', [reservasiController::class, 'store'])->name('AjukanReservasi');
+  Route::get(
+    '/reservasi/{id}/cek-jadwal',
+    [reservasiController::class, 'cekJadwal']
+  )->name('reservasi.cekJadwal');
 });
 
 Route::middleware(['auth', 'role:barberman'])->prefix('barberman')->group(function () {

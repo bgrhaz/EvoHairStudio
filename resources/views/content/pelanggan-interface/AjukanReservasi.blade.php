@@ -43,7 +43,7 @@
             <h5 class="mb-0">Detail Reservasi</h5>
           </div>
           <div class="card-body">
-            
+
             <form action="{{ route('AjukanReservasi') }}" method="POST">
               @csrf
               <!-- Input tersembunyi untuk ID Barberman -->
@@ -68,45 +68,130 @@
                 </select>
               </div>
 
-              <!-- Pilih Tanggal Reservasi -->
-              <!-- Tanggal Reservasi Otomatis Hari Ini -->
-              <input type="hidden" name="tanggal_reservasi" value="{{ date('Y-m-d') }}">
-              <!-- Pilih Jam Reservasi Hari Ini -->
+              <!-- Pilih Tanggal Reservasi Hari Ini -->
               <div class="mb-4">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                  <label class="form-label mb-0">
-                    Pilih Jam Reservasi <span class="badge bg-label-info ms-1">Hari Ini: {{ date('d M Y') }}</span>
-                  </label>
-                  <small class="text-muted">Pilih jam yang tersedia</small>
+                  <label class="form-label">Pilih Tanggal Reservasi</label>
+                  <input type="date" name="tanggal_reservasi" id="tanggal_reservasi"
+                    class="form-control d-block width-100" min="{{ date('Y-m-d') }}" value='{{ date('Y-m-d') }}' required>
                 </div>
-
                 <!-- Contoh Tampilan Statis Sebelum Terhubung Database -->
+
                 <div class="row g-2">
-                  @foreach ($jadwal_barberman as $jam)
-                    <div class="col-4 col-sm-3">
-                      <input type="radio" class="btn-check" name="id_jadwal" id="jadwal-{{ $jam->id_jadwal }}"
-                        value="{{ $jam->id_jadwal }}" required>
-                      <label class="btn btn-outline-primary w-100"
-                        for="jadwal-{{ $jam->id_jadwal }}">{{ $jam->jam }}</label>
-                    </div>
+                  <small class="text-muted">Pilih jam yang tersedia</small>
+
+                  @foreach ($jadwal as $jam)
+                    @if ($jam->id_jadwal)
+                      <div class="col-4 col-sm-3">
+                        <input type="radio" class="btn-check" name="id_jadwal" id="jadwal-{{ $loop->index }}"
+                          value="{{ $jam->id_jadwal }}" data-jadwal="{{ $jam->id_jadwal }}" data-barber-available="1"
+                          required>
+
+                        <label class="btn btn-outline-primary w-100" id="label-jadwal-{{ $loop->index }}"
+                          for="jadwal-{{ $loop->index }}">
+                          {{ $jam->jam }}
+                        </label>
+                      </div>
+                    @else
+                      <div class="col-4 col-sm-3">
+                        <input type="radio" class="btn-check" name="id_jadwal" id="jadwal-{{ $loop->index }}"
+                          value="" data-jadwal="" data-barber-available="0" disabled>
+
+                        <label class="btn btn-outline-danger w-100" id="label-jadwal-{{ $loop->index }}"
+                          for="jadwal-{{ $loop->index }}">
+                          {{ $jam->jam }}
+                        </label>
+                      </div>
+                    @endif
                   @endforeach
                 </div>
-              </div>
 
-              <!-- Tombol Aksi -->
-              <div class="d-flex justify-content-end gap-2">
-                <a href="{{ route('halamanPelanggan') }}" class="btn btn-outline-secondary">
-                  Batal
-                </a>
-                <button type="submit" class="btn btn-primary">
-                  <i class="bx bx-check-circle me-1"></i> Ajukan Reservasi
-                </button>
-              </div>
+                <!-- Tombol Aksi -->
+                <div class="d-flex justify-content-end gap-2">
+                  <a href="{{ route('halamanPelanggan') }}" class="btn btn-outline-secondary">
+                    Batal
+                  </a>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="bx bx-check-circle me-1"></i> Ajukan Reservasi
+                  </button>
+                </div>
             </form>
-
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      const tanggalInput = document.getElementById('tanggal_reservasi');
+
+      const urlCekJadwal = @json(route('reservasi.cekJadwal', [
+              'id' => $barberman->getKey(),
+          ]));
+
+      function cekJadwal() {
+
+        const tanggal = tanggalInput.value;
+
+        if (!tanggal) return;
+
+        fetch(urlCekJadwal + '?tanggal_reservasi=' + encodeURIComponent(tanggal))
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Gagal mengambil data jadwal');
+            }
+
+            return response.json();
+          })
+          .then(data => {
+
+            const waktuTerpakai = data.map(Number);
+
+            document.querySelectorAll(
+              '[data-barber-available="1"]'
+            ).forEach(input => {
+
+              const idJadwal = Number(input.dataset.jadwal);
+
+              const label = document.getElementById(
+                'label-' + input.id
+              );
+
+              const sudahDipesan = waktuTerpakai.includes(idJadwal);
+
+              if (sudahDipesan) {
+
+                input.disabled = true;
+                input.checked = false;
+
+                label.classList.remove('btn-outline-primary');
+                label.classList.add('btn-outline-danger');
+
+              } else {
+
+                input.disabled = false;
+
+                label.classList.remove('btn-outline-danger');
+                label.classList.add('btn-outline-primary');
+
+              }
+
+            });
+
+          })
+          .catch(error => {
+            console.error('Gagal memeriksa jadwal:', error);
+          });
+      }
+
+      // Ketika pengguna memilih tanggal berbeda
+      tanggalInput.addEventListener('change', cekJadwal);
+
+      // Ketika halaman pertama kali dibuka
+      cekJadwal();
+
+    });
+  </script>
 @endsection

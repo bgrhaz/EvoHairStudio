@@ -15,11 +15,13 @@ class Reservasi extends Model
     'id_pelanggan', // diambil dari user_id
     'id_pegawai', //sudah
     'id_layanan', //sudah
+    'id_jadwal',
     'tanggal_reservasi', //sudah
     'jam_mulai', //sudah - diambil dari id_jadwal
     'jam_selesai', // jam ditambah durasi
     'total_bayar', // diambil dari id_layanan -> harga
     'status_reservasi',
+    'jalur_reservasi'
   ];
 
   protected static function booted()
@@ -38,7 +40,11 @@ class Reservasi extends Model
         : 1;
 
       // Format hasil: A-001, A-002, dst. (atau ganti 'A-' dengan 'RSV-' . date('Ymd') . '-')
-      $reservasi->kode_reservasi = 'A-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+      if ($reservasi->jalur_reservasi == 'Online') {
+        $reservasi->kode_reservasi = 'A-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+      } else {
+        $reservasi->kode_reservasi = 'W-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+      }
     });
   }
 }

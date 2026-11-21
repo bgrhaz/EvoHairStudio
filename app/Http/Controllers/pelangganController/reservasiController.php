@@ -14,18 +14,35 @@ use Carbon\Carbon;
 
 class reservasiController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
+
   public function index($id)
   {
     $barberman = Pegawai::findOrFail($id);
     $layanan = Layanan::all();
-    $jadwal_barberman = jadwal_barberman::join('master_jam', 'jadwal_barberman.id_jam', '=', 'master_jam.id_jam')
-      ->where('id_pegawai', $id)
-      ->select('jadwal_barberman.*', 'master_jam.jam')->get();
 
-    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman', 'layanan', 'jadwal_barberman'));
+    $jadwal = master_jam::leftJoin('jadwal_barberman', function ($join) use ($id) {
+      $join->on('master_jam.id_jam', '=', 'jadwal_barberman.id_jam')
+        ->where('jadwal_barberman.id_pegawai', $id);
+    })
+      ->select(
+        'master_jam.*',
+        'jadwal_barberman.id_jadwal'
+      )
+      ->get();
+
+    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman', 'layanan', 'jadwal'));
+  }
+
+  public function cekJadwal(Request $request, $id)
+  {
+    $tanggal = $request->tanggal_reservasi;
+
+    $waktuTerpakai = Reservasi::where('id_pegawai', $id)
+      ->whereDate('tanggal_reservasi', $tanggal)
+      ->pluck('id_jadwal')
+      ->toArray();
+
+    return response()->json($waktuTerpakai);
   }
 
   /**
@@ -70,16 +87,19 @@ class reservasiController extends Controller
       ->format('H:i:s');
 
     $status_reservasi = 'belum selesai';
+    $jalur = 'Online';
 
     Reservasi::create([
       'id_pelanggan' => $id_pelanggan,
       'id_pegawai' => $data['id_pegawai'],
       'id_layanan' => $data['id_layanan'],
+      'id_jadwal' => $id_jadwal,
       'tanggal_reservasi' => $data['tanggal_reservasi'],
       'jam_mulai' => $jam,
       'jam_selesai' => $jam_selesai,
       'total_bayar' => $total_bayar,
-      'status_reservasi' => $status_reservasi
+      'status_reservasi' => $status_reservasi,
+      'jalur_reservasi' => $jalur
     ]);
 
     return redirect()->route('halamanPelanggan');

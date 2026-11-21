@@ -4,6 +4,8 @@ namespace App\Http\Controllers\adminController;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\jadwal_barberman;
+use App\Models\master_jam;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Pegawai;
@@ -41,13 +43,25 @@ class BuatAkunBarberman extends Controller
     $user = User::create($data);
 
     $user_id = $user->user_id;
-    Pegawai::create([
+
+    $pegawai = Pegawai::create([
       'user_id' => $user_id,
       'nama_pegawai' => $request->namaLengkap,
       'nomor_hp' => $request->nomor_hp,
       'foto_pegawai' => 'belum tersedia',
       'status_aktif' => 'aktif'
     ]);
+
+
+    $master_jam = master_jam::all();
+
+    foreach ($master_jam as $jam):
+      jadwal_barberman::create([
+        'id_jam' => $jam->id_jam,
+        'id_pegawai' => $pegawai->id_pegawai,
+        'jam' => $jam->jam
+      ]);
+    endforeach;
 
     return redirect()->route('admin.TambahAkunBarberman');
   }

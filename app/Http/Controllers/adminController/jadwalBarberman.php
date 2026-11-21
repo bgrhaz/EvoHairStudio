@@ -51,6 +51,7 @@ class jadwalBarberman extends Controller
           $dataInsert[] = [
             'id_pegawai'   => $barberman->id_pegawai,
             'id_jam'       => $idJam,
+            'jam' => master_jam::where('id_jam', $idJam)->value('jam')
           ];
         }
 
