@@ -29,8 +29,7 @@
               @csrf
 
               <div class="form-floating form-floating-outline mb-5 form-control-validation">
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email"
-                  autofocus />
+                <input type="text" class="form-control" id="email" name="email" placeholder=" " autofocus />
                 <label for="email">Email</label>
               </div>
 
@@ -38,8 +37,7 @@
                 <div class="form-password-toggle form-control-validation">
                   <div class="input-group input-group-merge">
                     <div class="form-floating form-floating-outline">
-                      <input type="password" id="password" class="form-control" name="password"
-                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      <input type="password" id="password" class="form-control" name="password" placeholder=" "
                         aria-describedby="password" />
                       <label for="password">Password</label>
                     </div>

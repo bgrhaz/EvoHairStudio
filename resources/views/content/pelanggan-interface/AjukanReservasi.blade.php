@@ -31,7 +31,17 @@
             </div>
             <h5 class="card-title mb-1">{{ $barberman->nama_pegawai }}</h5>
             <span class="badge bg-label-success mb-2">Aktif</span>
-            <p class="text-muted small mb-0">Siap melayani potongan rambut dan perawatan terbaik untuk Anda.</p>
+            <p class="text-muted small mb-0">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi aliquam voluptas molestias, optio ullam
+              error similique. Placeat cupiditate dolores ipsam aperiam voluptates sed. Consequuntur atque nulla
+              cupiditate, est veniam voluptatum!</p>
+            <p>Facere numquam eius sit modi quos non, illo quibusdam vitae est explicabo consectetur velit dolorum
+              repellendus a placeat beatae inventore repudiandae nulla, deleniti reprehenderit temporibus quod alias.
+              Laudantium, impedit error?</p>
+            <p>Nihil doloribus facilis minima adipisci, aspernatur qui voluptate ea natus quibusdam vero consequatur
+              sapiente modi! Inventore, cum cupiditate natus quia distinctio autem dicta vel odit sint error voluptas in.
+              Quisquam.</p>
+            </p>
           </div>
         </div>
       </div>
@@ -107,7 +117,7 @@
                 </div>
 
                 <!-- Tombol Aksi -->
-                <div class="d-flex justify-content-end gap-2">
+                <div class="d-flex justify-content-end mt-3">
                   <a href="{{ route('halamanPelanggan') }}" class="btn btn-outline-secondary">
                     Batal
                   </a>
