@@ -7,22 +7,7 @@
   <div class="user-home">
 
     <!-- NAVBAR -->
-    <nav class="landing-navbar">
-      <a href="{{ url('/') }}" class="brand">
-        <strong>Dimensi</strong>
-        <span>Evo Hair Studio</span>
-      </a>
 
-      <div class="nav-links">
-        <a href="#home">Halaman Utama</a>
-        <a href="#kontak">Kontak</a>
-        <a href="#tentang">Tentang</a>
-      </div>
-
-      <a href="{{ url('/login') }}" class="login-btn">
-        Login <i class="ri-arrow-right-up-line"></i>
-      </a>
-    </nav>
 
     <!-- HERO -->
     <section class="hero-section" id="home">
@@ -84,7 +69,7 @@
 
       <div class="about-image">
         <!-- Ganti dengan foto barbershop milikmu -->
-        <img src="{{ asset('assets/img/barbershop.jpg') }}" alt="Dimensi Evo Hair Studio">
+        <img src="{{ asset('assets/json/img/barbershop.png') }}" alt="Dimensi Evo Hair Studio">
       </div>
 
     </section>
@@ -128,7 +113,7 @@
 
               <span class="status-badge">Aktif</span>
 
-              <a href="#" class="reserve-btn">
+              <a href="{{ route('HalamanReservasi', $barberman->id_pegawai) }}" class="reserve-btn">
                 Ajukan Reservasi
               </a>
 

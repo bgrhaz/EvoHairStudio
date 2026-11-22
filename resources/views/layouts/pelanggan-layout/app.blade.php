@@ -1,89 +1,88 @@
+
 @isset($pageConfigs)
-  {!! Helper::updatePageConfig($pageConfigs) !!}
+    {!! Helper::updatePageConfig($pageConfigs) !!}
 @endisset
+
 @extends('layouts/commonMaster')
 
 @php
-  /* Display elements */
-  $contentNavbar = $contentNavbar ?? true;
-  $containerNav = $containerNav ?? 'container-xxl';
-  $isNavbar = $isNavbar ?? true;
-  $isMenu = $isMenu ?? false;
-  $isFlex = $isFlex ?? false;
-  $isFooter = $isFooter ?? true;
-  $customizerHidden = $customizerHidden ?? '';
+    /* Display elements */
+    $contentNavbar = $contentNavbar ?? true;
+    $containerNav = $containerNav ?? 'container-fluid';
+    $isNavbar = $isNavbar ?? true;
+    $isMenu = $isMenu ?? false;
+    $isFlex = $isFlex ?? false;
+    $isFooter = $isFooter ?? true;
+    $customizerHidden = $customizerHidden ?? '';
 
-  /* HTML Classes */
-  $navbarDetached = 'navbar-detached';
-  $menuFixed = isset($configData['menuFixed']) ? $configData['menuFixed'] : '';
-  if (isset($navbarType)) {
-      $configData['navbarType'] = $navbarType;
-  }
-  $navbarType = isset($configData['navbarType']) ? $configData['navbarType'] : '';
-  $footerFixed = isset($configData['footerFixed']) ? $configData['footerFixed'] : '';
-  $menuCollapsed = isset($configData['menuCollapsed']) ? $configData['menuCollapsed'] : '';
+    /* HTML Classes */
+    $navbarDetached = 'navbar-detached';
+    $menuFixed = isset($configData['menuFixed']) ? $configData['menuFixed'] : '';
 
-  /* Content classes */
-  $container = $container ?? 'container-xxl';
+    if (isset($navbarType)) {
+        $configData['navbarType'] = $navbarType;
+    }
+
+    $navbarType = isset($configData['navbarType']) ? $configData['navbarType'] : '';
+    $footerFixed = isset($configData['footerFixed']) ? $configData['footerFixed'] : '';
+    $menuCollapsed = isset($configData['menuCollapsed']) ? $configData['menuCollapsed'] : '';
+
+    /* Content classes */
+    $container = $container ?? 'container-fluid';
 
 @endphp
 
 @section('layoutContent')
-  <div class="layout-wrapper layout-content-navbar {{ $isMenu ? '' : 'layout-without-menu' }}">
-    <div class="layout-container">
 
-      @if ($isMenu)
-        @include('layouts/sections/menu/verticalMenu')
-      @endif
+    <div class="layout-wrapper layout-content-navbar {{ $isMenu ? '' : 'layout-without-menu' }}">
 
+        <div class="layout-container">
 
-      <!-- Layout page -->
-      <div class="layout-page">
+            @if ($isMenu)
+                @include('layouts/sections/menu/verticalMenu')
+            @endif
 
-        {{-- Below commented code read by artisan command while installing jetstream. !! Do not remove if you want to use jetstream. --}}
-        {{-- <x-banner /> --}}
+            <!-- Layout page -->
+            <div class="layout-page">
 
-        <!-- BEGIN: Navbar-->
-        @if ($isNavbar)
-          @include('layouts/pelanggan-layout/navbar')
-        @endif
-        <!-- END: Navbar-->
+                <!-- Navbar -->
+                @if ($isNavbar)
+                    @include('layouts/pelanggan-layout/navbar')
+                @endif
 
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
 
-        <!-- Content wrapper -->
-        <div class="content-wrapper">
+                    <!-- Content -->
+                    <div class="customer-fullpage">
 
-          <!-- Content -->
-          @if ($isFlex)
-            <div class="{{ $container }} d-flex align-items-stretch flex-grow-1 p-0">
-            @else
-              <div class="{{ $container }} flex-grow-1 container-p-y">
-          @endif
+                        @yield('content')
 
-          @yield('content')
+                    </div>
+                    <!-- / Content -->
+
+                    <!-- Footer -->
+                    @if ($isFooter)
+                        @include('layouts/sections/footer/footer')
+                    @endif
+                    <!-- / Footer -->
+
+                    <div class="content-backdrop fade"></div>
+
+                </div>
+                <!-- / Content wrapper -->
+
+            </div>
+            <!-- / Layout page -->
 
         </div>
-        <!-- / Content -->
 
-        <!-- Footer -->
-        @if ($isFooter)
-          @include('layouts/sections/footer/footer')
+        @if ($isMenu)
+            <div class="layout-overlay layout-menu-toggle"></div>
         @endif
-        <!-- / Footer -->
-        <div class="content-backdrop fade"></div>
-      </div>
-      <!--/ Content wrapper -->
+
+        <div class="drag-target"></div>
+
     </div>
-    <!-- / Layout page -->
-  </div>
 
-  @if ($isMenu)
-    <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle"></div>
-  @endif
-  <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-  <div class="drag-target"></div>
-  </div>
-
-  </div>
 @endsection
