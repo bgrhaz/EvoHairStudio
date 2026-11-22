@@ -11,12 +11,18 @@ use App\Models\master_jam;
 use App\Models\Reservasi;
 use App\Models\Pelanggan;
 use Carbon\Carbon;
+use App\Models\Foto;
 
 class reservasiController extends Controller
 {
 
   public function index($id)
   {
+    //Mengambil foto barberman
+    $pegawai = Pegawai::where('id_pegawai', $id)->first();
+    $user_id = $pegawai->user_id;
+    $foto = Foto::where('user_id', $user_id)->first();
+
     $barberman = Pegawai::findOrFail($id);
     $layanan = Layanan::all();
 
@@ -30,7 +36,7 @@ class reservasiController extends Controller
       )
       ->get();
 
-    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman', 'layanan', 'jadwal'));
+    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman', 'layanan', 'jadwal', 'foto'));
   }
 
   public function cekJadwal(Request $request, $id)

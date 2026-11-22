@@ -48,14 +48,14 @@
       "slug": "pages-account-settings",
       "submenu": [
         {
-          "url": "/akunBarberman",
-          "name": "Account",
-          "slug": "/akunBarberman"
+          "url": "/barberman/foto",
+          "name": "Profil",
+          "slug": "/barberman/foto"
         },
         {
-          "url": "pages/account-settings-notifications",
-          "name": "Notifications",
-          "slug": "pages-account-settings-notifications"
+          "url": "/barberman/PengaturanAkun",
+          "name": "Pengaturan Akun",
+          "slug": "/barberman/PengaturanAkun"
         },
         {
           "url": "pages/account-settings-connections",

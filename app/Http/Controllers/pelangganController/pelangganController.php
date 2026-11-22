@@ -14,8 +14,11 @@ class pelangganController extends Controller
    */
   public function index()
   {
-    $barbermanAktif = Pegawai::where('status_aktif', 'aktif')->get();
-    return view('content.pelanggan-interface.Pelanggan', compact('barbermanAktif'));
+    $pegawai = Pegawai::leftjoin('fotos', 'fotos.user_id', '=', 'pegawai.user_id')
+      ->where('pegawai.status_aktif', 'aktif')
+      ->select('pegawai.*', 'fotos.*')->get();
+
+    return view('content.pelanggan-interface.beranda', compact('pegawai'));
   }
 
   /**

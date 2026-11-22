@@ -33,8 +33,18 @@
     <li class="nav-item navbar-dropdown dropdown-user dropdown">
       <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
 
+
+        @php
+          $foto = App\Models\Foto::where('user_id', Auth::user()->user_id)->first();
+        @endphp
+
         <div class="avatar avatar-gold">
-          <i class="ri ri-user-3-fill"></i>
+          {{-- <i class="ri ri-user-3-fill"></i> --}}
+          @if ($foto?->foto)
+            <img src="{{ asset('storage/' . $foto->foto) }}" class="card-img-top rounded-circle">
+          @else
+            <i class="ri ri-user-3-fill"></i>
+          @endif
         </div>
       </a>
 

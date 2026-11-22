@@ -525,3 +525,16 @@ footer,
 .navbar-nav .dropdown-user > a .avatar-gold {
   margin-right: 8px;
 }
+
+/* CARD HILANG DENGAN LEBIH SMOOTH */
+.card-barberman {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card-barberman.hide {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+}

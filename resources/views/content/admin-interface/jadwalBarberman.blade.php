@@ -12,7 +12,7 @@
         <div class="card-body d-flex flex-column align-items-center justify-content-center">
           <div class="mb-3">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGObwesziwXc9pgxqwuh1F4rMKnD3IbDb0A6K9HFYNHw&s=10"
+              src="{{ $foto?->foto ? asset('storage/' . $foto->foto) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGObwesziwXc9pgxqwuh1F4rMKnD3IbDb0A6K9HFYNHw&s=10' }}"
               alt="Foto Barberman" class="rounded-circle object-fit-cover border border-2 border-primary" width="110"
               height="110">
           </div>

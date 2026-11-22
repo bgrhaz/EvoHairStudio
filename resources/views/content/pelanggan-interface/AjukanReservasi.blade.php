@@ -10,9 +10,6 @@
         <h4 class="fw-bold mb-1">Form Pengajuan Reservasi</h4>
         <p class="text-muted mb-0">Lengkapi detail layanan dan jadwal reservasi Anda</p>
       </div>
-      <a href="{{ route('halamanPelanggan') }}" class="btn btn-outline-secondary">
-        <i class="bx bx-arrow-back me-1"></i> Kembali
-      </a>
     </div>
 
     <div class="row g-4">
@@ -25,7 +22,7 @@
           <div class="card-body d-flex flex-column align-items-center justify-content-center">
             <div class="mb-3">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGObwesziwXc9pgxqwuh1F4rMKnD3IbDb0A6K9HFYNHw&s=10"
+                src="{{ $foto?->foto ? asset('storage/' . $foto->foto) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGObwesziwXc9pgxqwuh1F4rMKnD3IbDb0A6K9HFYNHw&s=10' }}"
                 alt="Foto Barberman" class="rounded-circle object-fit-cover border border-2 border-primary" width="110"
                 height="110">
             </div>
