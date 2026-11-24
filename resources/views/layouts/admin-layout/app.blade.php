@@ -24,7 +24,7 @@
   $menuCollapsed = isset($configData['menuCollapsed']) ? $configData['menuCollapsed'] : '';
 
   /* Content classes */
-  $container = $container ?? 'container-xxl';
+  $container = 'container-lg';
 
 @endphp
 
@@ -45,7 +45,7 @@
 
         <!-- BEGIN: Navbar-->
         @if ($isNavbar)
-          @include('layouts/sections/navbar/navbar')
+          @include('layouts/admin-layout/navbar')
         @endif
         <!-- END: Navbar-->
 

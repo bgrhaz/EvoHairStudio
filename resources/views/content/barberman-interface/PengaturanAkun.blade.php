@@ -1,4 +1,4 @@
-@extends('layouts/admin-layout/app')
+@extends('layouts/barberman-layout/app')
 @section('title', 'Pengaturan Akun')
 
 @section('content')

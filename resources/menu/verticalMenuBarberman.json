@@ -12,30 +12,14 @@
       "slug": "layouts",
       "submenu": [
         {
-          "url": "layouts/without-menu",
-          "name": "Without menu",
-          "slug": "layouts-without-menu"
+          "url": "/",
+          "name": "Masukkan Portofolio",
+          "slug": "/"
         },
         {
-          "url": "layouts/without-navbar",
-          "name": "Without navbar",
-          "slug": "layouts-without-navbar"
-        },
-        {
-          "url": "layouts/container",
-          "name": "Container",
-          "slug": "layouts-container"
-        },
-        {
-          "url": "layouts/fluid",
-          "name": "Fluid",
-          "slug": "layouts-fluid"
-        },
-        {
-          "url": "layouts/blank",
-          "name": "Blank",
-          "slug": "layouts-blank",
-          "target": "_blank"
+          "url": "/",
+          "name": "Masukkan Sertifikat",
+          "slug": "/"
         }
       ]
     },
@@ -56,60 +40,6 @@
           "url": "/barberman/PengaturanAkun",
           "name": "Pengaturan Akun",
           "slug": "/barberman/PengaturanAkun"
-        },
-        {
-          "url": "pages/account-settings-connections",
-          "name": "Connections",
-          "slug": "pages-account-settings-connections"
-        }
-      ]
-    },
-    {
-      "name": "Kelola Akun",
-      "icon": "menu-icon icon-base ri ri-shield-keyhole-line",
-      "slug": "auth",
-      "submenu": [
-        {
-          "url": "auth/login-basic",
-          "name": "Masuk",
-          "slug": "auth-login-basic",
-          "target": "_blank"
-        },
-        {
-          "url": "auth/register-basic",
-          "name": "Daftar",
-          "slug": "auth-register-basic",
-          "target": "_blank"
-        },
-        {
-          "url": "auth/forgot-password-basic",
-          "name": "Lupa Kata Sandi",
-          "slug": "auth-forgot-password-basic",
-          "target": "_blank"
-        },
-        {
-          "url": "auth/logout-basic",
-          "name": "Keluar",
-          "slug": "auth/logout-basic"
-        }
-      ]
-    },
-    {
-      "name": "Studio",
-      "icon": "menu-icon icon-base ri ri-box-3-line",
-      "slug": "pages-misc",
-      "submenu": [
-        {
-          "url": "pages/misc-error",
-          "name": "Error",
-          "slug": "pages-misc-error",
-          "target": "_blank"
-        },
-        {
-          "url": "pages/misc-under-maintenance",
-          "name": "Under Maintenance",
-          "slug": "pages-misc-under-maintenance",
-          "target": "_blank"
         }
       ]
     }

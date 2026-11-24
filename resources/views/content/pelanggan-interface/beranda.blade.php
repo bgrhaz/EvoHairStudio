@@ -6,12 +6,8 @@
 
   <div class="user-home">
 
-    <!-- NAVBAR -->
-
-
     <!-- HERO -->
     <section class="hero-section" id="home">
-
       <span class="hero-tag">✦ Good Hair, Good Mood</span>
 
       <div class="hero-title">
@@ -26,61 +22,20 @@
       </p>
 
       <div class="hero-actions">
-        <a href="#barberman" class="btn-black">Book Now</a>
-        <a href="#tentang" class="btn-outline">Profile</a>
+        <a href="#barberman" class="btn-black">Reservasi Sekarang</a>
+        <a href="#tentang" class="btn-outline">Tentang Kami</a>
+        <a href="#lokasi" class="btn-black">Lokasi</a>
       </div>
-
-      <!-- STATISTIK -->
-      <div class="hero-stats">
-        <div>
-          <h3>5.0</h3>
-          <span>Rating</span>
-        </div>
-
-        <div>
-          <h3>500+</h3>
-          <span>Customers</span>
-        </div>
-
-        <div>
-          <h3>Expert</h3>
-          <span>Barber</span>
-        </div>
-      </div>
-
     </section>
 
-    <!-- ABOUT -->
-    <section class="about-section" id="tentang">
-
-      <div class="about-text">
-        <h2>Kenapa<br>Memilih<br>Kami?</h2>
-
-        <span class="about-tag">Kenapa ?</span>
-
-        <p>
-          Kami percaya setiap orang punya gaya tersendiri.
-          Di Dimensi Evo Hair Studio, kami menghadirkan
-          potongan rambut berkualitas, pelayanan profesional,
-          dan pengalaman cukur yang nyaman untuk membuat
-          penampilanmu semakin percaya diri.
-        </p>
-      </div>
-
-      <div class="about-image">
-        <!-- Ganti dengan foto barbershop milikmu -->
-        <img src="{{ asset('assets/json/img/barbershop.png') }}" alt="Dimensi Evo Hair Studio">
-      </div>
-
-    </section>
+    <section class="section-line"></section>
 
     <!-- BARBERMAN -->
-    <section class="barber-section" id="barberman">
+    <section class="barber-section-" id="barberman">
 
       <div class="barber-heading">
         <div>
-          <span class="section-label">OUR PROFESSIONAL TEAM</span>
-          <h2>Pilih Barberman</h2>
+          <h3>Pilih Barberman Anda</h3>
           <p>Temukan barberman terbaik untuk gaya rambutmu.</p>
         </div>
 
@@ -130,16 +85,89 @@
 
     </section>
 
-    <!-- FOOTER -->
-    <footer class="landing-footer" id="kontak">
-      <div>
-        <strong>DIMENSI EVO HAIR STUDIO</strong>
-        <p>Look good. Feel confident.</p>
+    <section class="section-line"></section>
+    <!-- ABOUT -->
+    <section class="about-section" id="tentang">
+      <div class="about-text">
+        <h2>Cerita di Balik<br>Gaya</h2>
+        <span class="about-tag">Lebih dari Sekadar Cukur</span>
+        <p class="">
+          Kami percaya bahwa setiap orang memiliki karakter, gaya, dan keunikan tersendiri yang layak untuk ditampilkan.
+          Di DIMENSI EVO HAIR STUDIO, kami hadir untuk membantu setiap pelanggan menemukan penampilan terbaik melalui
+          potongan rambut yang berkualitas, pelayanan profesional, serta perhatian terhadap setiap detail.
+        <p>
+          Dengan mengutamakan kenyamanan, kebersihan, dan kepuasan pelanggan, kami berkomitmen memberikan pengalaman cukur
+          yang menyenangkan dalam suasana yang nyaman. Didukung oleh barberman yang berpengalaman dan memahami berbagai
+          gaya rambut, kami siap memberikan hasil potongan yang sesuai dengan keinginan dan karakter setiap pelanggan.
+
+        </p>
+        <p>
+          Bagi kami, mencukur rambut bukan sekadar mengubah penampilan, tetapi juga tentang membangun rasa percaya diri
+          dan memberikan pengalaman terbaik bagi setiap orang yang datang.
+        </p>
       </div>
 
-      <p>© 2026 DIMENSI EVO HAIR STUDIO</p>
-    </footer>
+      <div id="imageCarousel" class="carousel slide carousel-custom" data-bs-ride="carousel" data-bs-interval="1500">
 
+        <!-- Indikator -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active"></button>
+
+          <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1"></button>
+
+          <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- Gambar -->
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img src="{{ asset('assets/json/img/barbershop.png') }}" class="d-block w-100" alt="Foto 1">
+          </div>
+
+          <div class="carousel-item">
+            <img src="{{ asset('assets/json/img/barbershop.png') }}" class="d-block w-100" alt="Foto 2">
+          </div>
+
+          <div class="carousel-item">
+            <img src="{{ asset('assets/json/img/barbershop.png') }}" class="d-block w-100" alt="Foto 3">
+          </div>
+
+        </div>
+
+        <!-- Tombol kiri -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <!-- Tombol kanan -->
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+
+          <span class="carousel-control-next-icon"></span>
+        </button>
+
+      </div>
+    </section>
+
+    <section class="about-section" id="lokasi">
+      <div class="about-text">
+        <h2>Lokasi Dimensi Evo Hair Studio</h2>
+        <p><i class="fa-solid fa-location-dot"></i>
+          Jl. Pembangunan, Limbungan Baru, Rumbai, Kota Pekanbaru, Riau 28266</p>
+      </div>
+
+      <div class="about-image">
+        <div class="border rounded w-fit map-border">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.627330976509!2d101.43485737447413!3d0.5606184636052962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5ad1c13466c91%3A0x23e734df1ad85f0!2sDimensi.evo%20Hair%20Studio!5e0!3m2!1sen!2sid!4v1795515779656!5m2!1sen!2sid"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin" class="map-dimensi">
+          </iframe>
+        </div>
+
+      </div>
+    </section>
   </div>
 
 

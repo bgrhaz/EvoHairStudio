@@ -533,6 +533,10 @@ footer,
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-radius 0.3s ease,
+    transform 0.2s ease;
 }
 
 .card-barberman.hide {
@@ -691,15 +695,19 @@ footer,
 /* ABOUT */
 
 .about-section {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 35px;
   padding: 70px 0 100px;
+  display: flex;
+  justify-content: center;
 }
 
 .about-text {
-  position: relative;
+  width: 100%;
+  left: 65px;
+  z-index: 10;
 }
 
 .about-text h2 {
@@ -712,8 +720,9 @@ footer,
 
 .about-text p {
   max-width: 420px;
-  font-size: 13px;
-  color: #555;
+  font-size: 15px;
+
+  color: #000000;
   line-height: 1.7;
 }
 
@@ -764,6 +773,13 @@ footer,
   color: #000 !important;
 }
 
+.barber-heading h3 {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 8px 0;
+  color: #000 !important;
+}
+
 .barber-heading p {
   color: #777;
   font-size: 14px;
@@ -777,7 +793,7 @@ footer,
   border: 1px solid #ddd;
   border-radius: 30px;
   padding: 12px 18px;
-  min-width: 260px;
+  min-width: 400px;
 }
 
 .search-box input {
@@ -803,11 +819,16 @@ footer,
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  transition: all 0.35s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .barber-card:hover {
   transform: translateY(-7px);
-  box-shadow: 0 12px 30px #00000010;
+  box-shadow:
+    0 0 30px rgba(255, 193, 7, 0.4),
+    0 0 2px rgba(255, 193, 7, 0.3),
+    0 0 2px rgba(255, 193, 7, 0.2);
 }
 
 .barber-photo {
@@ -1057,4 +1078,855 @@ body:has(.customer-fullpage) .content-backdrop {
   border: 1px solid var(--devo-border) !important;
   color: var(--devo-text) !important;
   backdrop-filter: blur(14px);
+}
+
+.nav-link-pelanggan {
+  color: #000 !important;
+}
+
+.reservasi-head h4 {
+  color: #000 !important;
+}
+
+.reservasi-head p {
+  color: #555 !important;
+}
+
+.card-reservasi h5 {
+  color: #000 !important;
+}
+
+.card-reservasi p {
+  color: #555 !important;
+}
+
+.card-reservasi input label .form-control-pelanggan .form-label-pelanggan .form-select-pelanggan {
+  color: #e3f8ec !important;
+}
+
+.layout-navbar-landing,
+#layout-navbar-landing,
+.navbar-landing,
+.navbar.bg-navbar-theme-landing {
+  margin-top: 15px;
+  color: var(--devo-text) !important;
+}
+
+.btnDaftar {
+  position: relative;
+  color: #f2f2ef !important;
+  background: linear-gradient(rgba(24, 24, 24, 0.866)) !important;
+  border-color: var(--devo-gold) !important;
+  font-weight: 700;
+  transition: 0.8s;
+}
+
+.btnDaftar-blink:hover {
+  animation: blink 0.2s ease-in-out;
+  background: linear-gradient(rgba(63, 63, 57, 0.534)) !important;
+  box-shadow: 0px 0px 5px rgba(87, 73, 24, 0.673);
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Mengaktifkan animasi perpindahan halaman */
+@view-transition {
+  navigation: auto;
+}
+
+/* Animasi halaman lama */
+::view-transition-old(root) {
+  animation: fade-out 0.5s ease-in-out;
+}
+
+/* Animasi halaman baru */
+::view-transition-new(root) {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.navbar-container {
+  width: 100%;
+  height: 10vh;
+  border-bottom: 1px solid #000;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+.navbar-button {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-pelanggan {
+  z-index: 1;
+  width: 120px;
+  height: 45px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #000;
+  border-radius: 30px;
+
+  text-decoration: none;
+  color: #000;
+}
+
+.btn-pelanggan i {
+  font-size: 20px;
+}
+
+.btn-pelanggan:hover {
+  animation: blinkBtn 0.2s ease-in-out;
+}
+
+@keyframes blinkBtn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.profil-pelanggan {
+  z-index: 10;
+}
+
+.profil-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tersembunyi {
+  position: absolute;
+  left: 0;
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  border: 1px solid #000;
+}
+
+.tersembunyi.show {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  animation: muncul 0.2s ease-out forwards;
+}
+
+@keyframes muncul {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.tersembunyi2 {
+  position: absolute;
+  left: 0;
+  top: calc(200%);
+  background-color: var(--devo-danger);
+  color: white;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  border: 1px solid #000;
+  transition: 0.2s;
+}
+
+.tersembunyi2.show {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  animation: muncul 0.4s ease-out forwards;
+}
+
+@keyframes muncul {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.section-line {
+  margin-top: 50px;
+  padding: 20px 0;
+  border-top: 1px solid #aeaeae;
+}
+
+.map-border {
+  width: fit-content;
+  border: 1px solid #333;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.map-border iframe {
+  display: block;
+  width: 600px;
+  height: 450px;
+}
+
+.about-text p {
+  text-align: justify;
+}
+
+#imageCarousel {
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+#imageCarousel .carousel-inner {
+  overflow: hidden;
+}
+
+#imageCarousel .carousel-item {
+  height: 800px;
+}
+
+#imageCarousel .carousel-item img {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+  display: block;
+  transform: none !important;
+  transition: none !important;
+}
+
+.carousel-custom {
+  z-index: 5;
+}
+
+/* =====================================
+   ACCOUNT SETTINGS - WHITE GOLD THEME
+===================================== */
+
+.account-settings {
+  background: #ffffff !important;
+  border: 1px solid #eee9dc !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.045) !important;
+  overflow: hidden;
+}
+
+/* Header Card */
+.account-settings .card-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid #f0ede5 !important;
+  padding: 22px 25px;
+}
+
+.account-settings .card-header h5 {
+  color: #343434 !important;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.account-settings .card-header p {
+  font-size: 13px;
+}
+
+/* Body Card */
+.account-settings .card-body {
+  background: #ffffff !important;
+  padding: 25px;
+}
+
+/* Label */
+.account-settings .form-label {
+  color: #444444 !important;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Input */
+.account-settings .form-control {
+  background-color: #fafafa !important;
+  border: 1px solid #e5e1d7 !important;
+  border-radius: 8px !important;
+  color: #333333 !important;
+  padding: 11px 14px;
+  min-height: 45px;
+  transition: all 0.25s ease;
+}
+
+.account-settings .form-control::placeholder {
+  color: #aaa49a !important;
+}
+
+.account-settings .form-control:focus {
+  background-color: #ffffff !important;
+  border-color: #d6b43e !important;
+  box-shadow: 0 0 0 3px rgba(214, 180, 62, 0.13) !important;
+  outline: none;
+}
+
+/* Tombol Simpan */
+.account-settings .btn-save-account {
+  background: linear-gradient(135deg, #f1d36b, #d5ae32) !important;
+  color: #292313 !important;
+  border: 1px solid #d5ae32 !important;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.account-settings .btn-save-account:hover {
+  background: linear-gradient(135deg, #dfbf4e, #c49c25) !important;
+  box-shadow: 0 4px 12px rgba(197, 158, 40, 0.22);
+  transform: translateY(-1px);
+}
+
+/* Tombol Reset */
+.account-settings .btn-reset-account {
+  background: #f5f5f5 !important;
+  color: #555555 !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.account-settings .btn-reset-account:hover {
+  background: #ececec !important;
+  border-color: #d5ae32 !important;
+  color: #333333 !important;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .account-settings .card-header,
+  .account-settings .card-body {
+    padding: 18px;
+  }
+
+  .account-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* =====================================
+   CONTACT PAGE - WHITE GOLD THEME
+===================================== */
+
+.contact-heading h4 {
+  color: #343434 !important;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.contact-heading p {
+  color: #888 !important;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Contact Info Cards */
+.contact-info-card {
+  background: #fff;
+  border: 1px solid #eee9dc;
+  border-radius: 12px;
+  padding: 22px;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.035);
+  transition: all 0.25s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+  border-color: #e2ca78;
+}
+
+.contact-icon {
+  width: 45px;
+  height: 45px;
+  background: #faf5e6;
+  color: #c49c25;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.contact-info-card h6 {
+  color: #343434 !important;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.contact-info-card p {
+  color: #888 !important;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.contact-info-card a {
+  color: #bd982b !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-info-card a:hover {
+  color: #96751c !important;
+}
+
+.contact-detail {
+  color: #444 !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Main Contact Card */
+.contact-main-card {
+  background: #fff !important;
+  border: 1px solid #eee9dc !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+  overflow: hidden;
+}
+
+.contact-main-card .card-header {
+  background: #fff !important;
+  border-bottom: 1px solid #f0ede5 !important;
+  padding: 20px 24px;
+}
+
+.contact-main-card .card-header h5 {
+  color: #343434 !important;
+  font-weight: 700;
+}
+
+.contact-main-card .card-body {
+  padding: 24px;
+  background: #fff !important;
+}
+
+/* Form */
+.contact-main-card .form-label {
+  color: #444 !important;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.contact-main-card .form-control {
+  background: #fafafa !important;
+  border: 1px solid #e5e1d7 !important;
+  color: #333 !important;
+  border-radius: 8px !important;
+  padding: 11px 14px;
+  transition: all 0.25s ease;
+}
+
+.contact-main-card .form-control:focus {
+  background: #fff !important;
+  border-color: #d5ae32 !important;
+  box-shadow: 0 0 0 3px rgba(213, 174, 50, 0.13) !important;
+}
+
+.contact-main-card textarea {
+  resize: vertical;
+}
+
+/* Send Button */
+.btn-send-message {
+  background: linear-gradient(135deg, #f1d36b, #d5ae32) !important;
+  color: #292313 !important;
+  border: 1px solid #d5ae32 !important;
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-send-message:hover {
+  background: linear-gradient(135deg, #dfbf4e, #c49c25) !important;
+  box-shadow: 0 4px 12px rgba(197, 158, 40, 0.22);
+  transform: translateY(-1px);
+}
+
+/* FAQ */
+.faq-card .accordion-item {
+  border: 1px solid #eee9dc !important;
+  border-radius: 8px !important;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.faq-card .accordion-button {
+  background: #fff;
+  color: #444 !important;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px;
+  box-shadow: none;
+}
+
+.faq-card .accordion-button:not(.collapsed) {
+  background: #faf5e6;
+  color: #a5811d;
+}
+
+.faq-card .accordion-button:focus {
+  box-shadow: none;
+}
+
+.faq-card .accordion-button::after {
+  filter: sepia(1);
+}
+
+.faq-card .accordion-body {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.7;
+  background: #fff;
+}
+
+/* Help Box */
+.contact-help-box {
+  background: #faf7ed;
+  border: 1px solid #eee4c5;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-help-box > i {
+  font-size: 30px;
+  color: #c49c25;
+  margin-bottom: 10px;
+}
+
+.contact-help-box h6 {
+  color: #343434 !important;
+  font-weight: 700;
+}
+
+.contact-help-box p {
+  color: #888 !important;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.btn-help {
+  background: #d5ae32 !important;
+  color: #292313 !important;
+  border-radius: 7px;
+  padding: 9px 18px;
+  font-weight: 600;
+}
+
+.btn-help:hover {
+  background: #c49c25 !important;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .contact-main-card .card-header,
+  .contact-main-card .card-body {
+    padding: 18px;
+  }
+
+  .contact-info-card {
+    padding: 18px;
+  }
+
+  .btn-send-message {
+    width: 100%;
+  }
+}
+
+.btn-admin {
+  z-index: 1;
+  width: 120px;
+  height: 45px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #2b2b2b, #171717);
+
+  border: 1px solid var(--devo-gold-dark);
+  border-radius: 30px;
+
+  text-decoration: none;
+  margin-right: 10px;
+
+  position: relative;
+}
+
+.btn-admin i {
+  font-size: 20px;
+}
+
+.btn-admin .notif {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e53935;
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  border-radius: 50px;
+  border: 2px solid #fff;
+  line-height: 1;
+}
+
+/* =====================================
+   MODAL BACA PESAN - DARK GOLD
+===================================== */
+
+.modal-pesan {
+  background: #171717 !important;
+  border: 1px solid #4b3c19 !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.modal-pesan-header {
+  background: #202020 !important;
+  border-bottom: 1px solid #3a301b !important;
+  padding: 20px 24px;
+}
+
+.modal-pesan-header .modal-title {
+  color: #e9c44d !important;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.modal-pesan-header small {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Body */
+.modal-pesan-body {
+  padding: 25px;
+  background: #171717;
+  color: #ddd;
+}
+
+/* Pengirim */
+.pesan-pengirim {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.pesan-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(213, 174, 50, 0.15);
+  border: 1px solid #80651e;
+  color: #e9c44d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pesan-identitas {
+  flex: 1;
+}
+
+.pesan-identitas h6 {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pesan-identitas span {
+  color: #999;
+  font-size: 13px;
+}
+
+.pesan-waktu {
+  color: #aaa;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pesan-waktu i {
+  color: #d5ae32;
+  font-size: 16px;
+}
+
+.pesan-divider {
+  border-color: #393020;
+  opacity: 1;
+  margin: 22px 0;
+}
+
+/* Subjek */
+.pesan-subjek,
+.pesan-isi {
+  margin-bottom: 22px;
+}
+
+.pesan-subjek label,
+.pesan-isi label {
+  display: block;
+  color: #d5ae32;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+.pesan-subjek h6 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Isi Pesan */
+.pesan-content {
+  background: #202020;
+  border: 1px solid #393020;
+  border-radius: 9px;
+  padding: 20px;
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.pesan-content p {
+  margin-bottom: 14px;
+}
+
+/* Footer */
+.modal-pesan-footer {
+  background: #202020;
+  border-top: 1px solid #393020 !important;
+  padding: 16px 24px;
+}
+
+.btn-tutup-pesan {
+  background: #303030 !important;
+  border: 1px solid #555 !important;
+  color: #ddd !important;
+  border-radius: 7px;
+  padding: 9px 18px;
+}
+
+.btn-tutup-pesan:hover {
+  background: #444 !important;
+}
+
+.btn-balaspesan {
+  background: #d5ae32 !important;
+  border: 1px solid #d5ae32 !important;
+  color: #171717 !important;
+  border-radius: 7px;
+  padding: 9px 18px;
+  font-weight: 700;
+}
+
+.btn-balaspesan:hover {
+  background: #e9c44d !important;
+  color: #171717 !important;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .modal-pesan-body {
+    padding: 18px;
+  }
+
+  .pesan-waktu {
+    width: 100%;
+    margin-left: 61px;
+  }
+
+  .modal-pesan-footer {
+    padding: 14px 18px;
+  }
 }

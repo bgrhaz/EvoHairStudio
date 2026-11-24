@@ -16,9 +16,15 @@ use App\Http\Controllers\adminController\jadwalBarberman;
 use App\Http\Controllers\adminController\PengaturanAkun;
 use App\Http\Controllers\FotoController\fotoController;
 use App\Http\Controllers\barbermanController\PengaturanAkunBarberman;
+use App\Http\Controllers\authentications\landingController;
+use App\Http\Controllers\adminController\pembatalanReservasi;
+use App\Http\Controllers\pelangganController\pengaturan;
+use App\Http\Controllers\pelangganController\kontakController;
+use App\Http\Controllers\adminController\PesanController;
 
 Route::middleware('guest')->group(function () {
-  Route::get('/', [LoginBasic::class, 'index'])->name('login');
+  Route::get('/', [landingController::class, 'index'])->name('landing');
+  Route::get('/login', [LoginBasic::class, 'index'])->name('login');
   Route::post('/auth/login-user', [LoginBasic::class, 'authenticate'])->name('auth-login-user');
   Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
   Route::post('/auth/register-user', [RegisterBasic::class, 'store'])->name('auth-register-user');
@@ -46,6 +52,12 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
   Route::get('/dashboard/{id}', [Analytics::class, 'cekJadwal'])->name('cekJadwal');
   Route::post('/Dashboard/AjukanReservasiOffline',  [Analytics::class, 'store'])->name('AjukanReservasiOffline');
   Route::post('/Dashboard/transaksi', [Analytics::class, 'transaksi'])->name('transaksi');
+
+  //Pembatalan Reservasi
+  Route::get('/pembatalan/{id}', [pembatalanReservasi::class, 'index'])->name('pembatalanReservasi');
+  Route::get('/HalamanPesan', [PesanController::class, 'index'])->name('halamanPesan');
+
+  Route::patch('/HalamanPesan/{id}/dibaca', [PesanController::class, 'tandaiDibaca'])->name('pesan.dibaca');
 });
 
 Route::middleware(['auth', 'role:user'])->prefix('pelanggan')->group(function () {
@@ -56,6 +68,11 @@ Route::middleware(['auth', 'role:user'])->prefix('pelanggan')->group(function ()
     '/reservasi/{id}/cek-jadwal',
     [reservasiController::class, 'cekJadwal']
   )->name('reservasi.cekJadwal');
+
+  Route::get('/PengaturanAkun', [pengaturan::class, 'index'])->name('pengaturanAkun');
+  Route::post('/PengaturanAkun/update', [pengaturan::class, 'store'])->name('update');
+  Route::get('/HalamanKontak', [kontakController::class, 'index'])->name('kontak');
+  Route::post('/KirimPesan', [kontakController::class, 'store'])->name('KirimPesan');
 });
 
 Route::middleware(['auth', 'role:barberman'])->prefix('barberman')->group(function () {

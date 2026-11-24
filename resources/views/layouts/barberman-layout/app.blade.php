@@ -24,7 +24,7 @@
   $menuCollapsed = isset($configData['menuCollapsed']) ? $configData['menuCollapsed'] : '';
 
   /* Content classes */
-  $container = $container ?? 'container-xxl';
+  $container = 'container-lg';
 
 @endphp
 

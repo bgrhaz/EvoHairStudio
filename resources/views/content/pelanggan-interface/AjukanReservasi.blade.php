@@ -6,7 +6,7 @@
   <div class="container-xxl flex-grow-1 container-p-y">
     <!-- Header & Tombol Kembali -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <div>
+      <div class="reservasi-head">
         <h4 class="fw-bold mb-1">Form Pengajuan Reservasi</h4>
         <p class="text-muted mb-0">Lengkapi detail layanan dan jadwal reservasi Anda</p>
       </div>
@@ -15,7 +15,7 @@
     <div class="row g-4">
       <!-- Kolom Kiri: Profil Barberman yang Dipilih -->
       <div class="col-12 col-md-4">
-        <div class="card text-center h-100">
+        <div class="card-reservasi text-center h-100 barber-card">
           <div class="card-header">
             <span class="badge bg-label-primary">Barberman Pilihan</span>
           </div>
@@ -45,7 +45,7 @@
 
       <!-- Kolom Kanan: Form Detail Reservasi -->
       <div class="col-12 col-md-8">
-        <div class="card h-100">
+        <div class="card h-100 barber-card">
           <div class="card-header">
             <h5 class="mb-0">Detail Reservasi</h5>
           </div>
@@ -114,13 +114,17 @@
                 </div>
 
                 <!-- Tombol Aksi -->
-                <div class="d-flex justify-content-end mt-3">
-                  <a href="{{ route('halamanPelanggan') }}" class="btn btn-outline-secondary">
-                    Batal
-                  </a>
-                  <button type="submit" class="btn btn-primary">
-                    <i class="bx bx-check-circle me-1"></i> Ajukan Reservasi
-                  </button>
+                <div class="d-flex justify-content-end mt-2">
+                  <div class="px-0.5">
+                    <a href="{{ route('halamanPelanggan') }}" class="btn btn-outline-secondary reserve-btn">
+                      Batal
+                    </a>
+                  </div>
+                  <div class="">
+                    <button type="submit" class="reserve-btn">
+                      <i class="bx bx-check-circle me-1"></i> Ajukan Reservasi
+                    </button>
+                  </div>
                 </div>
             </form>
           </div>

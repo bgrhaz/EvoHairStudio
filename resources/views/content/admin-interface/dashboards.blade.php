@@ -347,8 +347,7 @@
                         Bayar
                       </button>
 
-                      <form action="#" method="POST">
-                        @csrf
+                      <form action="{{ route('admin.pembatalanReservasi', $pelanggan->id_reservasi) }}" method="GET">
                         <button type="submit" class="btn btn-xs btn-danger">Batal</button>
                       </form>
 
@@ -412,10 +411,7 @@
                         Bayar
                       </button>
 
-
-
-                      <form action="#" method="POST">
-                        @csrf
+                      <form action="{{ route('admin.pembatalanReservasi', $pelanggan->id_reservasi) }}" method="GET">
                         <button type="submit" class="btn btn-sm btn-danger">Batal</button>
                       </form>
 
