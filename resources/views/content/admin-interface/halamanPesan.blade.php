@@ -132,7 +132,7 @@
             <tbody>
               @foreach ($DataPesan as $pesan)
                 <tr style="color: #ddd;" id="pesan-{{ $pesan->id_pesan }}">
-                  <td>1</td>
+                  <td>{{ ($DataPesan->currentPage() - 1) * $DataPesan->perPage() + $loop->iteration }}</td>
                   <td>{{ $pesan->nama_pengirim }}</td>
                   <td>{{ $pesan->email }}</td>
                   <td>{{ $pesan->subjek }}</td>
@@ -166,6 +166,9 @@
               @endforeach
             </tbody>
           </table>
+          <div class="mt-3">
+            {{ $DataPesan->links('pagination::bootstrap-5') }}
+          </div>
         </div>
 
         <div class="card-footer">

@@ -180,8 +180,8 @@ class Analytics extends Controller
   {
     $dataAdmin = Tranksaksi::join('admin', 'admin.id_admin', '=', 'transaksi.id_admin')
       ->join('layanan', 'layanan.id_layanan', '=', 'transaksi.id_kategori')
-      ->select('admin.*', 'transaksi.*', 'layanan.*')
-      ->get();
+      ->orderBy('transaksi.id_transaksi', 'desc')
+      ->select('admin.*', 'transaksi.*', 'layanan.*')->paginate(10);
 
     return view('content.admin-interface.transaksi', compact('dataAdmin'));
   }

@@ -24,10 +24,6 @@
             <h5 class="card-title mb-1">Riwayat Transaksi Admin</h5>
             <small class="text-muted">Daftar transaksi yang diproses oleh admin</small>
           </div>
-
-          <span class="badge bg-label-primary">
-            {{ count($dataAdmin) }} Transaksi
-          </span>
         </div>
 
         {{-- Tabel --}}
@@ -35,9 +31,10 @@
           <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
               <tr>
+                <th>No</th>
                 <th class="px-4">Pelanggan</th>
                 <th>Admin</th>
-                <th>Nomor Antrian</th>
+                <th>Tanggal</th>
                 <th>Paket Layanan</th>
                 <th>Total</th>
                 <th>Uang Diterima</th>
@@ -49,6 +46,7 @@
               @forelse ($dataAdmin as $item)
                 <tr>
                   {{-- Nama Pelanggan --}}
+                  <td>{{ ($dataAdmin->currentPage() - 1) * $dataAdmin->perPage() + $loop->iteration }}</td>
                   <td class="px-4">
                     <div class="d-flex align-items-center">
                       <div class="avatar avatar-sm me-3">
@@ -77,7 +75,7 @@
                   {{-- Nomor Antrian --}}
                   <td>
                     <span class="badge bg-label-dark">
-                      {{ $item->nomor_antrian ?? '-' }}
+                      {{ $item->tanggal_transaksi ?? '-' }}
                     </span>
                   </td>
 
@@ -117,6 +115,10 @@
               @endforelse
             </tbody>
           </table>
+
+          <div class="mt-3">
+            {{ $dataAdmin->links('pagination::bootstrap-5') }}
+          </div>
         </div>
 
       </div>

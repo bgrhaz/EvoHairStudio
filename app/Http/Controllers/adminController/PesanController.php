@@ -16,7 +16,7 @@ class PesanController extends Controller
   {
     $DataPesan = Pesan::where('nama_pengirim', '!=', 'Sistem')
       ->orderBy('id_pesan', 'desc')
-      ->get();
+      ->paginate(10);
     return view('content.admin-interface.halamanPesan', compact('DataPesan'));
   }
 
