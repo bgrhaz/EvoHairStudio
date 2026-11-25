@@ -10,7 +10,8 @@
         &#169;
         <script>
           document.write(new Date().getFullYear())
-        </script>, made by 2 TI E - Kelompok 1
+        </script>, made by 2 TI E - Kelompok 1 | Template by <a href="https://themeselection.com/"
+          target="_blank">ThemeSelection</a>
       </div>
     </div>
   </div>
