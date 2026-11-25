@@ -14,6 +14,11 @@
       <span>Kontak</span>
     </a>
 
+    <a href="{{ route('PesanPelanggan') }}" class="btn-pelanggan">
+      <span>Pesan</span>
+    </a>
+
+
     <div class="profil-wrapper" id="profilWrapper">
 
       <div class="hidden" id="hidden-container">

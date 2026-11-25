@@ -49,6 +49,7 @@
         document.getElementById('inputIdPegawai').value = id_pegawai;
         document.getElementById('inputKodeReservasi').value = antrian;
         document.getElementById('inputIdLayanan').value = id_layanan;
+        document.getElementById('id_pelanggan').value = id;
 
         inputNama.value = nama;
         inputTotal.value = total;
@@ -584,6 +585,7 @@
                 </div>
 
                 <input type="hidden" name="kembalian" id="inputKembalian">
+                <input type="hidden" name="id_pelanggan" id="id_pelanggan">
 
                 <small id="peringatanKurang" class="text-danger d-none">
                   Uang pembayaran masih kurang!

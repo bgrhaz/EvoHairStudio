@@ -5,6 +5,7 @@ namespace App\Http\Controllers\adminController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pesan;
+use App\Models\User;
 
 class PesanController extends Controller
 {
@@ -13,7 +14,9 @@ class PesanController extends Controller
    */
   public function index()
   {
-    $DataPesan = Pesan::orderBy('id_pesan', 'desc')->get();
+    $DataPesan = Pesan::where('nama_pengirim', '!=', 'Sistem')
+      ->orderBy('id_pesan', 'desc')
+      ->get();
     return view('content.admin-interface.halamanPesan', compact('DataPesan'));
   }
 

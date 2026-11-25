@@ -21,6 +21,7 @@ use App\Http\Controllers\adminController\pembatalanReservasi;
 use App\Http\Controllers\pelangganController\pengaturan;
 use App\Http\Controllers\pelangganController\kontakController;
 use App\Http\Controllers\adminController\PesanController;
+use App\Http\Controllers\pelangganController\PesanPelangganController;
 
 Route::middleware('guest')->group(function () {
   Route::get('/', [landingController::class, 'index'])->name('landing');
@@ -73,6 +74,7 @@ Route::middleware(['auth', 'role:user'])->prefix('pelanggan')->group(function ()
   Route::post('/PengaturanAkun/update', [pengaturan::class, 'store'])->name('update');
   Route::get('/HalamanKontak', [kontakController::class, 'index'])->name('kontak');
   Route::post('/KirimPesan', [kontakController::class, 'store'])->name('KirimPesan');
+  Route::get('/pesanPelanggan', [PesanPelangganController::class, 'index'])->name('PesanPelanggan');
 });
 
 Route::middleware(['auth', 'role:barberman'])->prefix('barberman')->group(function () {

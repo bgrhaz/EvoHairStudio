@@ -1930,3 +1930,343 @@ body:has(.customer-fullpage) .content-backdrop {
     padding: 14px 18px;
   }
 }
+
+/* HALAMAN PESAN */
+.inbox-page {
+  padding: 35px 4%;
+  background: #f8f8f8;
+  min-height: 85vh;
+}
+
+.inbox-heading {
+  margin-bottom: 60px;
+}
+
+.inbox-heading h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.inbox-heading p {
+  color: #888;
+  font-size: 15px;
+}
+
+/* LAYOUT */
+.inbox-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* CARD */
+.inbox-card,
+.help-card {
+  background: white;
+  border: 1px solid #eee8dc;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+}
+
+.inbox-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.inbox-card-header h4 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #333;
+}
+
+.inbox-card-header span {
+  background: #fbf5e9;
+  color: #aa801c;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* TABLE */
+.inbox-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 550px;
+}
+
+.inbox-table th {
+  background: #30263b;
+  color: white;
+  padding: 17px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.inbox-table th:first-child {
+  border-radius: 7px 0 0 0;
+}
+
+.inbox-table th:last-child {
+  border-radius: 0 7px 0 0;
+}
+
+.inbox-table td {
+  padding: 17px 15px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  font-size: 14px;
+}
+
+.inbox-table tbody tr:hover {
+  background: #fdfbf7;
+}
+
+/* STATUS */
+.badge-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-status.success {
+  background: #e5f7eb;
+  color: #219653;
+}
+
+.badge-status.unread {
+  background: #fff0e5;
+  color: #d97735;
+}
+
+.badge-status.read {
+  background: #eee;
+  color: #777;
+}
+
+/* BUTTON */
+.btn-read,
+.btn-help {
+  background: #d9ae32;
+  color: #222;
+  border: none;
+  border-radius: 7px;
+  padding: 9px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-read:hover,
+.btn-help:hover {
+  background: #c59b23;
+  color: #222;
+  transform: translateY(-2px);
+}
+
+/* HELP CARD */
+.help-card {
+  padding: 45px 28px;
+}
+
+.help-content {
+  background: #fcf9f1;
+  border: 1px solid #f0e4c5;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.help-icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+  color: #c69b2b;
+}
+
+.help-content h4 {
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.help-content p {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+/* MODAL */
+.message-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.message-modal {
+  background: white;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 13px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h4 {
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.close-modal {
+  border: none;
+  background: none;
+  font-size: 27px;
+  color: #888;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.sender-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.sender-avatar {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: #fbf2dc;
+  color: #b58a24;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.sender-info small {
+  display: block;
+  color: #999;
+  margin-top: 4px;
+}
+
+.message-content h5 {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.message-content p {
+  color: #777;
+  line-height: 1.7;
+}
+
+.reservation-detail {
+  background: #faf8f3;
+  padding: 18px;
+  border-radius: 9px;
+  margin-top: 20px;
+}
+
+.reservation-detail h5 {
+  margin-bottom: 15px;
+}
+
+.reservation-detail p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.reservation-detail strong {
+  color: #333;
+  text-align: right;
+}
+
+.modal-footer {
+  border-top: 1px solid #eee;
+  padding: 15px 25px;
+  text-align: right;
+}
+
+.btn-close {
+  background: #d9ae32;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 22px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .inbox-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .inbox-heading {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .inbox-page {
+    padding: 25px 15px;
+  }
+
+  .inbox-card {
+    padding: 15px;
+  }
+
+  .help-card {
+    padding: 18px;
+  }
+}
+
+.message-text {
+  min-height: 130px;
+  white-space: pre-wrap;
+  line-height: 1.7;
+  padding: 12px;
+}
+
+.message-info .form-control {
+  color: #555;
+  border-color: #e8e8e8;
+  border-radius: 7px;
+}
+
+.message-info .form-label {
+  color: #333;
+  font-size: 14px;
+}

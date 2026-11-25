@@ -2,7 +2,7 @@
   use Illuminate\Support\Facades\Auth;
   use Illuminate\Support\Facades\Route;
   use App\Models\Pesan;
-  $pesan = Pesan::where('dibaca', 0)->count();
+  $pesan = Pesan::where('dibaca', 0)->where('nama_pengirim', '!=', 'Sistem')->count();
 @endphp
 
 <!--  Brand demo (display only for navbar-full and hide on below xl) -->

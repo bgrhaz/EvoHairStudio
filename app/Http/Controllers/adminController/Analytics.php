@@ -17,6 +17,7 @@ use App\Models\Tranksaksi;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Pesan;
 
 class Analytics extends Controller
 {
@@ -136,6 +137,41 @@ class Analytics extends Controller
     $reservasi->update([
       'status_reservasi' => 'selesai'
     ]);
+
+    $layanan = Layanan::where('id_layanan', $data['id_layanan'])->first();
+    $nama_layanan = $layanan->nama_layanan;
+    $harga_layanan = $layanan->harga;
+    $tanggal = now()->format('Y-m-d');
+    $uang_bayar = $data['uang_diterima'];
+    $kembalian = $data['kembalian'];
+
+    //Ambil id_pelanggan lalu cari user_idnya, lalu kirim pesan;
+    $id_pelanggan = $request->id_pelanggan;
+    $pelanggan = Pelanggan::where('id_pelanggan', $id_pelanggan)->first();
+    $user_id_pelanggan = $pelanggan->user_id;
+    $subjek = 'Transaksi Layanan Selesai';
+    $pesan =
+      "Transaksi telah berhasil dilakukan\n" .
+      "Tanggal : $tanggal \n" .
+      "Layanan : $nama_layanan \n" .
+      "Harga : $harga_layanan \n" .
+      "Uang Bayar : $uang_bayar \n" .
+      "Kembalian : $kembalian \n" .
+      "Terima kasih, Kepuasan anda adalah\n" .
+      "prioritas kami";
+
+
+    Pesan::create([
+      'id_user' => $user_id_pelanggan,
+      'nama_pengirim' => 'Sistem',
+      'email' => $admin->email,
+      'nomor_hp' => $admin->nomor_hp,
+      'subjek' => $subjek,
+      'pesan' => $pesan,
+      'tanggal' => $tanggal,
+      'dibaca' => 0
+    ]);
+
 
     return redirect()->route('admin.dashboard');
   }
