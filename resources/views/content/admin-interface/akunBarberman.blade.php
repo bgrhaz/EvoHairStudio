@@ -23,7 +23,7 @@
                 <th class="text-truncate">Email</th>
                 <th class="text-truncate">Role</th>
                 <th class="text-truncate">Status</th>
-                <th class="text-truncate">Pengaturan Jadwal</th>
+                <th class="text-truncate">Lihat Profil dan Jadwal</th>
               </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
                   <td><span class="badge bg-label-warning rounded-pill">Aktif</span></td>
                   <td>
                     <form action="{{ route('admin.JadwalBarberman', $barberman->user_id) }}" method="GET">
-                      <button type="submit" class="btn btn-success">Atur Jadwal</button>
+                      <button type="submit" class="btn btn-success">Lihat</button>
                     </form>
 
                   </td>

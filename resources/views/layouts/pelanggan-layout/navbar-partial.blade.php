@@ -5,7 +5,7 @@
 <div class="navbar-container">
 
   <div class="hero-title brand-dimensi d-none d-md-block">
-    <h4>DIMENSI EVO </h4>
+    <h4>DIMENSI &nbsp; EVO &nbsp; HAIR &nbsp; STUDIO </h4>
   </div>
 
   <nav class="navbar-button">

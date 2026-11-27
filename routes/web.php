@@ -22,6 +22,8 @@ use App\Http\Controllers\pelangganController\pengaturan;
 use App\Http\Controllers\pelangganController\kontakController;
 use App\Http\Controllers\adminController\PesanController;
 use App\Http\Controllers\pelangganController\PesanPelangganController;
+use App\Http\Controllers\barbermanController\PortofolioController;
+use App\Http\Controllers\barbermanController\SertifikatController;
 
 Route::middleware('guest')->group(function () {
   Route::get('/', [landingController::class, 'index'])->name('landing');
@@ -85,6 +87,10 @@ Route::middleware(['auth', 'role:barberman'])->prefix('barberman')->group(functi
   //   ->name('barberman.foto.destroy');
   Route::get('PengaturanAkun', [PengaturanAkunBarberman::class, 'index'])->name('barberman.PengaturanAkun');
   Route::post('PengaturanAkun/UbahAKun', [PengaturanAkunBarberman::class, 'store'])->name('barberman.UbahAKun');
+  Route::get('/Portofolio', [PortofolioController::class, 'index'])->name('barberman.protofolio');
+  Route::post('/Portofolio', [PortofolioController::class, 'store'])->name('barberman.portofolio.submit');
+  Route::get('/Sertifikat', [SertifikatController::class, 'index'])->name('barberman.sertifikat');
+  Route::post('/Sertifikat', [SertifikatController::class, 'store'])->name('barberman.sertifikat.submit');
 });
 
 Route::middleware(['auth'])->group(function () {

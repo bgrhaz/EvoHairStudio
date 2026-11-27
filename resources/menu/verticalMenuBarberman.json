@@ -12,14 +12,14 @@
       "slug": "layouts",
       "submenu": [
         {
-          "url": "/",
+          "url": "/barberman/Portofolio",
           "name": "Masukkan Portofolio",
-          "slug": "/"
+          "slug": "/barberman/Portofolio"
         },
         {
-          "url": "/",
+          "url": "/barberman/Sertifikat",
           "name": "Masukkan Sertifikat",
-          "slug": "/"
+          "slug": "/barberman/Sertifikat"
         }
       ]
     },

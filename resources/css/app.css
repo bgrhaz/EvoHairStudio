@@ -2299,3 +2299,628 @@ body:has(.customer-fullpage) .content-backdrop {
   top: 10px;
   left: 10px;
 }
+
+.portfolio-content h6 {
+  height: 48px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.portfolio-content p {
+  height: 40px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* =====================================
+   DIMENSI EVO - CLEAN WHITE THEME
+===================================== */
+
+.reservasi-page {
+  --bg-main: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --border-color: #e5e5e5;
+  --gold: #c49b2e;
+  --gold-hover: #a9821d;
+  --text-main: #242424;
+  --text-muted: #777777;
+
+  color: var(--text-main);
+  background: var(--bg-main);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+body:has(.reservasi-page) {
+  background: #f5f5f5 !important;
+}
+
+/* HEADER */
+
+.reservasi-page h4,
+.reservasi-page h5,
+.reservasi-page h6 {
+  color: var(--text-main);
+}
+
+.reservasi-head h4 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.reservasi-head p {
+  font-size: 13px;
+  color: var(--text-muted) !important;
+}
+
+/* CARD BARBER DAN FORM */
+
+.reservasi-page .barber-card,
+.reservasi-page .card-reservasi {
+  background: var(--bg-card) !important;
+  color: var(--text-main);
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reservasi-page .card-header {
+  background: transparent;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 16px;
+}
+
+.reservasi-page .card-body {
+  padding: 22px;
+}
+
+.reservasi-page .barber-card img {
+  border-color: var(--gold) !important;
+}
+
+.reservasi-page .barber-card .card-title {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.reservasi-page .text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* LABEL DAN INPUT */
+
+.reservasi-page .form-label {
+  color: #555555;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.reservasi-page .form-control,
+.reservasi-page .form-select {
+  background-color: #ffffff;
+  color: #242424;
+  border: 1px solid #dddddd;
+  border-radius: 7px;
+  min-height: 42px;
+  font-size: 13px;
+}
+
+.reservasi-page .form-control:focus,
+.reservasi-page .form-select:focus {
+  background-color: #ffffff;
+  color: #242424;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(196, 155, 46, 0.12);
+}
+
+.reservasi-page .form-control[readonly] {
+  background-color: #f7f7f7;
+  color: #555555;
+}
+
+.reservasi-page input[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* PILIHAN JAM */
+
+.reservasi-page .btn-outline-primary {
+  color: #8c6a16;
+  border-color: #e3d5ad;
+  background: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 5px;
+  transition: 0.2s ease;
+}
+
+.reservasi-page .btn-outline-primary:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #ffffff;
+}
+
+.reservasi-page .btn-check:checked + .btn-outline-primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #ffffff;
+}
+
+.reservasi-page .btn-outline-danger {
+  background: #fff1f1;
+  color: #cf5555;
+  border-color: #efcccc;
+  opacity: 0.75;
+}
+
+/* TOMBOL */
+
+.reservasi-page .reserve-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 17px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.reservasi-page .reserve-btn:hover {
+  background: var(--gold-hover);
+  border-color: var(--gold-hover);
+  transform: translateY(-2px);
+}
+
+.reservasi-page a.reserve-btn.btn-outline-secondary {
+  background: #ffffff;
+  border-color: #dddddd;
+  color: #555555;
+}
+
+.reservasi-page a.reserve-btn.btn-outline-secondary:hover {
+  background: #eeeeee;
+}
+
+/* =====================================
+   PORTOFOLIO DAN SERTIFIKAT
+===================================== */
+
+.reservasi-page .portfolio-list {
+  padding: 22px 10px;
+}
+
+/* CONTAINER TAB */
+
+.reservasi-page .container.bg-black {
+  background: #ffffff !important;
+  border: 1px solid var(--border-color);
+  border-radius: 12px !important;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+/* NAVIGASI TAB */
+
+.reservasi-page .nav-tabs {
+  border-bottom: 1px solid var(--border-color);
+  gap: 8px;
+}
+
+.reservasi-page .nav-tabs .nav-link {
+  color: #777777;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.reservasi-page .nav-tabs .nav-link:hover {
+  color: var(--gold);
+}
+
+.reservasi-page .nav-tabs .nav-link.active {
+  color: var(--gold);
+  background: transparent;
+  border-bottom: 2px solid var(--gold);
+}
+
+/* AREA TAB */
+
+.reservasi-page .tab-content {
+  background: #ffffff;
+  border-color: var(--border-color) !important;
+  border-radius: 0 0 10px 10px !important;
+}
+
+/* CARD PORTOFOLIO */
+
+.reservasi-page .portfolio-card {
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: 0.25s ease;
+}
+
+.reservasi-page .portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* FOTO PORTOFOLIO */
+
+.reservasi-page .portfolio-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #f1f1f1;
+}
+
+/* FOTO SERTIFIKAT */
+
+.reservasi-page .certificate-image {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  display: block;
+  padding: 10px;
+  background: #f5f5f5;
+}
+
+/* INFORMASI CARD */
+
+.reservasi-page .portfolio-info {
+  padding: 15px;
+  flex: 1;
+}
+
+.reservasi-page .portfolio-info h6 {
+  color: #292929;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  height: 42px;
+  margin-bottom: 8px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.reservasi-page .portfolio-info p {
+  color: #777777;
+  font-size: 12px;
+  line-height: 1.6;
+  height: 39px;
+  margin: 0;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 767px) {
+  .reservasi-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .reservasi-page .card-body {
+    padding: 16px;
+  }
+
+  .reservasi-page .portfolio-image,
+  .reservasi-page .certificate-image {
+    height: 240px;
+  }
+
+  .reservasi-page .portfolio-list {
+    padding: 15px 0;
+  }
+
+  .reservasi-head h4 {
+    font-size: 19px;
+  }
+}
+
+/* =====================================
+   INPUT KHUSUS HALAMAN RESERVASI
+===================================== */
+
+.reservasi-page .reservasi-input {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+
+  border: 1px solid #dddddd !important;
+  border-radius: 7px !important;
+
+  min-height: 42px;
+  padding: 10px 13px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  box-shadow: none !important;
+  transition: all 0.2s ease;
+}
+
+/* PLACEHOLDER */
+
+.reservasi-page .reservasi-input::placeholder {
+  color: #aaaaaa !important;
+}
+
+/* SAAT INPUT DIKLIK */
+
+.reservasi-page .reservasi-input:focus {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+
+  border-color: #c49b2e !important;
+
+  box-shadow: 0 0 0 3px rgba(196, 155, 46, 0.12) !important;
+
+  outline: none;
+}
+
+/* INPUT READONLY */
+
+.reservasi-page .reservasi-input[readonly] {
+  background-color: #f7f7f7 !important;
+  color: #666666 !important;
+  cursor: default;
+}
+
+/* DROPDOWN */
+
+.reservasi-page select.reservasi-input {
+  cursor: pointer;
+}
+
+/* OPTION DROPDOWN */
+
+.reservasi-page select.reservasi-input option {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* TANGGAL */
+
+.reservasi-page input[type='date'].reservasi-input {
+  color-scheme: light;
+  cursor: pointer;
+}
+
+.text-reservasi {
+  color: #000 !important;
+}
+
+/* =====================================
+   ADMIN - PORTOFOLIO & SERTIFIKAT
+===================================== */
+
+.admin-portfolio-section {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  background: #1c1c1c;
+  border: 1px solid #383838;
+  border-radius: 10px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+/* TAB NAVIGASI */
+
+.admin-portfolio-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #383838;
+}
+
+.admin-portfolio-tabs .nav-link {
+  color: #b5b5b5;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.admin-portfolio-tabs .nav-link:hover {
+  color: #e5bd45;
+}
+
+.admin-portfolio-tabs .nav-link.active {
+  color: #e5bd45;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #e5bd45;
+}
+
+/* AREA KONTEN */
+
+.admin-portfolio-content {
+  background: transparent;
+  border: none;
+  padding: 20px 5px 5px;
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-portfolio-content .row {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* CARD */
+
+.admin-portfolio-card {
+  height: 100%;
+  min-width: 0;
+  background: #252525;
+  border: 1px solid #3b3b3b;
+  border-radius: 9px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.25s ease;
+}
+
+.admin-portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: #c49b2e;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* GAMBAR PORTOFOLIO */
+
+.admin-portfolio-image-wrapper {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #303030;
+}
+
+.admin-portfolio-image {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* GAMBAR SERTIFIKAT */
+
+.admin-certificate-image-wrapper {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: #eeeeee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-certificate-image {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain;
+  padding: 8px;
+}
+
+/* INFORMASI CARD */
+
+.admin-portfolio-info {
+  padding: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-portfolio-info h6 {
+  color: #e5bd45;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+
+  height: 39px;
+  margin-bottom: 8px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.admin-portfolio-info p {
+  color: #aaaaaa;
+  font-size: 12px;
+  line-height: 1.6;
+
+  height: 38px;
+  margin-bottom: 0;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* KETIKA DATA KOSONG */
+
+.admin-portfolio-empty {
+  padding: 40px 15px;
+  text-align: center;
+  color: #999999;
+}
+
+.admin-portfolio-empty i {
+  font-size: 35px;
+  color: #c49b2e;
+}
+
+.admin-portfolio-empty p {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 767px) {
+  .admin-portfolio-section {
+    padding: 10px;
+  }
+
+  .admin-portfolio-image-wrapper,
+  .admin-certificate-image-wrapper {
+    height: 200px;
+  }
+
+  .admin-portfolio-content {
+    padding: 15px 0 0;
+  }
+}

@@ -81,6 +81,114 @@
         </form>
       </div>
     </div>
+
+
+    <!-- PORTOFOLIO DAN SERTIFIKAT ADMIN -->
+    <div class="col-12">
+      <div class="admin-portfolio-section mt-3">
+
+        <!-- NAVIGASI TAB -->
+        <ul class="nav nav-tabs admin-portfolio-tabs" id="adminPortfolioTab" role="tablist">
+
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="admin-home-tab" data-bs-toggle="tab" data-bs-target="#admin-home-pane"
+              type="button" role="tab" aria-controls="admin-home-pane" aria-selected="true">
+              <i class="bx bx-images me-1"></i>
+              Portofolio
+            </button>
+          </li>
+
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="admin-certificate-tab" data-bs-toggle="tab"
+              data-bs-target="#admin-certificate-pane" type="button" role="tab"
+              aria-controls="admin-certificate-pane" aria-selected="false">
+              <i class="bx bx-certification me-1"></i>
+              Sertifikat
+            </button>
+          </li>
+
+        </ul>
+
+        <!-- KONTEN TAB -->
+        <div class="tab-content admin-portfolio-content">
+
+          <!-- PORTOFOLIO -->
+          <div class="tab-pane fade show active" id="admin-home-pane" role="tabpanel" aria-labelledby="admin-home-tab"
+            tabindex="0">
+
+            <div class="row g-4">
+
+              @forelse ($Portofolio as $portofolio)
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                  <div class="admin-portfolio-card">
+
+                    <div class="admin-portfolio-image-wrapper">
+                      <img src="{{ $portofolio?->foto ? asset('storage/' . $portofolio->foto) : '' }}"
+                        alt="{{ $portofolio->judul }}" class="admin-portfolio-image">
+                    </div>
+
+                    <div class="admin-portfolio-info">
+                      <h6>{{ $portofolio->judul }}</h6>
+                      <p>{{ $portofolio->deskripsi }}</p>
+                    </div>
+
+                  </div>
+
+                </div>
+              @empty
+                <div class="col-12">
+                  <div class="admin-portfolio-empty">
+                    <i class="bx bx-images"></i>
+                    <p>Belum ada portofolio.</p>
+                  </div>
+                </div>
+              @endforelse
+
+            </div>
+          </div>
+
+          <!-- SERTIFIKAT -->
+          <div class="tab-pane fade" id="admin-certificate-pane" role="tabpanel" aria-labelledby="admin-certificate-tab"
+            tabindex="0">
+
+            <div class="row g-4">
+
+              @forelse ($Sertifikat as $sertifikat)
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+
+                  <div class="admin-portfolio-card">
+
+                    <div class="admin-certificate-image-wrapper">
+                      <img src="{{ $sertifikat?->foto ? asset('storage/' . $sertifikat->foto) : '' }}"
+                        alt="{{ $sertifikat->judul }}" class="admin-certificate-image">
+                    </div>
+
+                    <div class="admin-portfolio-info">
+                      <h6>{{ $sertifikat->judul }}</h6>
+                      <p>{{ $sertifikat->deskripsi }}</p>
+                    </div>
+
+                  </div>
+
+                </div>
+              @empty
+                <div class="col-12">
+                  <div class="admin-portfolio-empty">
+                    <i class="bx bx-certification"></i>
+                    <p>Belum ada sertifikat.</p>
+                  </div>
+                </div>
+              @endforelse
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <!-- CSS Tambahan agar Efek Hover & Checked Terlihat Jelas -->

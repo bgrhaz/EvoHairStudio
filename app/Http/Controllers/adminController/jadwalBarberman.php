@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\master_jam;
 use App\Models\jadwal_barberman;
 use App\Models\Foto;
+use App\Models\Portofolio;
+use App\Models\Sertifikat;
 
 class jadwalBarberman extends Controller
 {
@@ -20,13 +22,17 @@ class jadwalBarberman extends Controller
     $barberman = Pegawai::where('user_id', $id)->firstOrFail();
     $foto = Foto::where('user_id', $id)->first();
 
+
     // Ambil semua master jam urut dari pagi ke malam
     $jamMaster = master_jam::orderBy('jam', 'asc')->get();
 
     // Ambil daftar id_jam yang sudah dipilih barberman ini dalam bentuk array
     $jadwalTerpilih = jadwal_barberman::where('id_pegawai', $barberman->id_pegawai)->pluck('id_jam')->toArray();
 
-    return view('content.admin-interface.jadwalBarberman', compact('barberman', 'jamMaster', 'jadwalTerpilih', 'foto'));
+    $Portofolio = Portofolio::where('id_pegawai', $barberman->id_pegawai)->get();
+    $Sertifikat = Sertifikat::where('id_pegawai', $barberman->id_pegawai)->get();
+
+    return view('content.admin-interface.jadwalBarberman', compact('barberman', 'jamMaster', 'jadwalTerpilih', 'foto', 'Portofolio', 'Sertifikat'));
   }
 
   public function store(Request $request, $id)

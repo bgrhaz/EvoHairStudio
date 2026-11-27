@@ -12,6 +12,8 @@ use App\Models\Reservasi;
 use App\Models\Pelanggan;
 use Carbon\Carbon;
 use App\Models\Foto;
+use App\Models\Portofolio;
+use App\Models\Sertifikat;
 
 class reservasiController extends Controller
 {
@@ -36,7 +38,10 @@ class reservasiController extends Controller
       )
       ->get();
 
-    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman', 'layanan', 'jadwal', 'foto'));
+    $Portofolio = Portofolio::where('id_pegawai', $id)->get();
+    $Sertifikat = Sertifikat::where('id_pegawai', $id)->get();
+
+    return view('content.pelanggan-interface.AjukanReservasi', compact('barberman', 'layanan', 'jadwal', 'foto', 'Portofolio', 'Sertifikat'));
   }
 
   public function cekJadwal(Request $request, $id)

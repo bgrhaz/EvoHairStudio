@@ -3,7 +3,7 @@
 @section('title', 'Ajukan Reservasi')
 
 @section('content')
-  <div class="container-xxl flex-grow-1 container-p-y">
+  <div class="container-xxl flex-grow-1 container-p-y reservasi-page">
     <!-- Header & Tombol Kembali -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div class="reservasi-head">
@@ -28,17 +28,13 @@
             </div>
             <h5 class="card-title mb-1">{{ $barberman->nama_pegawai }}</h5>
             <span class="badge bg-label-success mb-2">Aktif</span>
-            <p class="text-muted small mb-0">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi aliquam voluptas molestias, optio ullam
-              error similique. Placeat cupiditate dolores ipsam aperiam voluptates sed. Consequuntur atque nulla
-              cupiditate, est veniam voluptatum!</p>
-            <p>Facere numquam eius sit modi quos non, illo quibusdam vitae est explicabo consectetur velit dolorum
-              repellendus a placeat beatae inventore repudiandae nulla, deleniti reprehenderit temporibus quod alias.
-              Laudantium, impedit error?</p>
-            <p>Nihil doloribus facilis minima adipisci, aspernatur qui voluptate ea natus quibusdam vero consequatur
-              sapiente modi! Inventore, cum cupiditate natus quia distinctio autem dicta vel odit sint error voluptas in.
-              Quisquam.</p>
-            </p>
+            <div class="barber-description">
+              <p>Lorem ipsum dolor sit amet consectetur...</p>
+
+              <p>Facere numquam eius sit modi quos non...</p>
+
+              <p>Nihil doloribus facilis minima adipisci...</p>
+            </div>
           </div>
         </div>
       </div>
@@ -47,7 +43,7 @@
       <div class="col-12 col-md-8">
         <div class="card h-100 barber-card">
           <div class="card-header">
-            <h5 class="mb-0">Detail Reservasi</h5>
+            <h5 class="mb-0 text-reservasi">Detail Reservasi</h5>
           </div>
           <div class="card-body">
 
@@ -60,14 +56,14 @@
               <!-- Nama Pelanggan (Otomatis dari user login) -->
               <div class="mb-3">
                 <label for="namaPelanggan" class="form-label">Nama Pelanggan</label>
-                <input type="text" class="form-control" id="namaPelanggan" name="nama_pelanggan"
+                <input type="text" class="form-control reservasi-input" id="namaPelanggan" name="nama_pelanggan"
                   value="{{ Auth::user()->namaLengkap ?? '' }}" placeholder="Masukkan nama lengkap Anda" readonly>
               </div>
 
               <!-- Pilih Paket Layanan -->
               <div class="mb-3">
                 <label for="paketLayanan" class="form-label">Pilih Paket Layanan</label>
-                <select class="form-select" id="paketLayanan" name="id_layanan" required>
+                <select class="form-select reservasi-input" id="paketLayanan" name="id_layanan" required>
                   <option value="" selected disabled>-- Pilih Paket Layanan --</option>
                   @foreach ($layanan as $pilihan)
                     <option value="{{ $pilihan->id_layanan }}">{{ $pilihan->nama_layanan }}</option>
@@ -80,7 +76,8 @@
                 <div class="d-flex justify-content-between align-items-center mb-2">
                   <label class="form-label">Pilih Tanggal Reservasi</label>
                   <input type="date" name="tanggal_reservasi" id="tanggal_reservasi"
-                    class="form-control d-block width-100" min="{{ date('Y-m-d') }}" value='{{ date('Y-m-d') }}' required>
+                    class="form-control d-block width-100 reservasi-input" min="{{ date('Y-m-d') }}"
+                    value='{{ date('Y-m-d') }}' required>
                 </div>
                 <!-- Contoh Tampilan Statis Sebelum Terhubung Database -->
 
@@ -114,7 +111,7 @@
                 </div>
 
                 <!-- Tombol Aksi -->
-                <div class="d-flex justify-content-end mt-2">
+                <div class="d-flex justify-content-end mt-2 gap-2">
                   <div class="px-0.5">
                     <a href="{{ route('halamanPelanggan') }}" class="btn btn-outline-secondary reserve-btn">
                       Batal
@@ -130,6 +127,77 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="container mt-5 bg-black rounded">
+
+      <!-- 1. Navigasi Tab -->
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-pane" type="button"
+            role="tab" aria-controls="home-pane" aria-selected="true">Portofolio</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-pane"
+            type="button" role="tab" aria-controls="profile-pane" aria-selected="false">Sertifikat</button>
+        </li>
+
+      </ul>
+
+      <!-- 2. Konten Tab -->
+      <div class="tab-content border border-top-0 p-3 rounded-bottom" id="myTabContent">
+        {{-- CONTENT PORTOFOLIO --}}
+        <div class="tab-pane fade show active" id="home-pane" role="tabpanel" aria-labelledby="home-tab"
+          tabindex="0">
+
+          <div class="card-body portfolio-list">
+            <div class="row g-4">
+              @foreach ($Portofolio as $portofolio)
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="portfolio-card">
+
+                    <img src="{{ $portofolio?->foto ? asset('storage/' . $portofolio->foto) : '' }}"
+                      alt="{{ $portofolio->judul }}" class="portfolio-image">
+
+                    <div class="portfolio-info ">
+                      <h6 class="text-reservasi">{{ $portofolio->judul }}</h6>
+                      <p>{{ $portofolio->deskripsi }}</p>
+                    </div>
+
+                  </div>
+                </div>
+              @endforeach
+            </div>
+          </div>
+        </div>
+
+        {{-- CONTENT SERTIFIKAT --}}
+        <div class="tab-pane fade" id="profile-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+          <div class="card-body portfolio-list">
+            <div class="row g-4">
+              @foreach ($Sertifikat as $sertifikat)
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="portfolio-card certificate-card">
+
+                    <img src="{{ $sertifikat?->foto ? asset('storage/' . $sertifikat->foto) : '' }}"
+                      alt="{{ $sertifikat->judul }}" class="certificate-image">
+
+                    <div class="portfolio-info">
+                      <h6 class="text-reservasi">{{ $sertifikat->judul }}</h6>
+                      <p>{{ $sertifikat->deskripsi }}</p>
+                    </div>
+
+                  </div>
+                </div>
+              @endforeach
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
     </div>
   </div>
 
