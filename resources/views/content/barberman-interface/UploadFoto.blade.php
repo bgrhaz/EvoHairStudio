@@ -16,11 +16,11 @@
   <div class="row g-3">
 
     <div class="col-md-6">
-      <div class="card d-flex align-items-center m-2 p-3 h-100">
+      <div class="card m-2 p-3 h-100 card-profil">
         <h5 class="card-title">Foto Profil</h5>
         <img
           src="{{ $foto?->foto ? asset('storage/' . $foto->foto) : 'https://i.pinimg.com/originals/75/4d/35/754d3502a5b2bd7007e4eef9fc8fac25.jpg' }}"
-          alt="" class="card-img-top rounded-circle w-50">
+          alt="" class="img-profil">
       </div>
     </div>
 
@@ -38,6 +38,7 @@
         </form>
         <p class="text-danger mt-2">Format (png/jpg/jpeg) | Max : 2mb</p>
       </div>
+
     </div>
 
   </div>

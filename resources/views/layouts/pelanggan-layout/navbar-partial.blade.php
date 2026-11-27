@@ -4,6 +4,10 @@
 
 <div class="navbar-container">
 
+  <div class="hero-title brand-dimensi d-none d-md-block">
+    <h4>DIMENSI EVO </h4>
+  </div>
+
   <nav class="navbar-button">
 
     <a href="/" class="btn-pelanggan">

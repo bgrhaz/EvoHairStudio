@@ -1177,6 +1177,8 @@ body:has(.customer-fullpage) .content-backdrop {
 }
 
 .navbar-container {
+  position: relative;
+  background-color: #000;
   width: 100%;
   height: 10vh;
   border-bottom: 1px solid #000;
@@ -1189,6 +1191,12 @@ body:has(.customer-fullpage) .content-backdrop {
   box-sizing: border-box;
 }
 
+.brand-dimensi {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
 .navbar-button {
   display: flex;
   align-items: center;
@@ -1196,6 +1204,7 @@ body:has(.customer-fullpage) .content-backdrop {
 }
 
 .btn-pelanggan {
+  background-color: var(--devo-bg);
   z-index: 1;
   width: 120px;
   height: 45px;
@@ -1207,11 +1216,11 @@ body:has(.customer-fullpage) .content-backdrop {
 
   box-sizing: border-box;
 
-  border: 1px solid #000;
+  border: 1px solid var(--devo-text);
   border-radius: 30px;
 
   text-decoration: none;
-  color: #000;
+  color: var(--devo-text);
 }
 
 .btn-pelanggan i {
@@ -1246,11 +1255,10 @@ body:has(.customer-fullpage) .content-backdrop {
 .tersembunyi {
   position: absolute;
   left: 0;
-  background-color: white;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  border: 1px solid #000;
+  border: 1px solid var(--devo-text);
 }
 
 .tersembunyi.show {
@@ -2269,4 +2277,25 @@ body:has(.customer-fullpage) .content-backdrop {
 .message-info .form-label {
   color: #333;
   font-size: 14px;
+}
+
+.img-profil {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: solid var(--devo-gold);
+}
+
+.card-profil {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-profil h5 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
